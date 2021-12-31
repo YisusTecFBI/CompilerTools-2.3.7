@@ -2117,6 +2117,61 @@ Token(=, OP_ASIG, 7, 65),
 Token(45.78, VALOR, 8, 15)])
 --------------------
 ````
+Ya hemos guardado nuestros identificadores en un ArrayList. Podemos acceder facilmente a los tokens y a su vez, acceder ya sea al número de línea/columna, lexema o componente éxico del mismo. Primeramente mostraremos los tokens de ambas producciones:
+
+````java
+        for (Production ident : identificadores) {
+            ArrayList<Token> tks = ident.getTokens();
+            for (Token tk : tks) {
+                System.out.println(tk);
+            }
+            System.out.println("-".repeat(20));
+        }
+````
+
+Lo anterior mostrará lo siguiente en consola:
+
+````
+Token(número, TIPO_DATO, 1, 94)
+Token($hola, IDENTIFICADOR, 2, 56)
+Token(=, OP_ASIG, 3, 65)
+Token(56, VALOR, 4, 24)
+--------------------
+Token(flotante, TIPO_DATO, 5, 76)
+Token($kilometros, IDENTIFICADOR, 6, 45)
+Token(=, OP_ASIG, 7, 65)
+Token(45.78, VALOR, 8, 15)
+--------------------
+````
+
+Puede darse el caso de que solo queramos algunos datos y no todo el token. Para ello, podemos usar métodos lexemeRank, lexicalCompRank ó tokenRank, los cuales nos permiten acceder a un determinado rango de tokens y/o sus atributos. Por ejemplo, podemos creas un HashMap para almacenar el nombre del identificador y su valor para crear una tabla de identificadores. Lo haremos de la siguiente manera:
+
+````java
+        // Creamos un HashMap para guardar los identificador y sus valores
+        HashMap<String, String> identifiers = new HashMap<>();
+
+        for (Production ident : identificadores) {
+            String tipo_dato = ident.lexemeRank(0);
+            String identificador = ident.lexemeRank(1);
+            String valor = ident.lexemeRank(-1);
+            // Mostramos los lexemas extraídos
+            System.out.println(String.format("El identificador %s de tipo %s es igual a %s", identificador, tipo_dato, valor));
+            // Guardamos la llave y el valor en nuestro HashMap
+            identifiers.put(identificador, valor);
+        }
+
+        // Mostramos en consola nuestro HashMap
+        System.out.println(String.format("\n%s", identifiers));
+````
+
+Lo anterior mostrará lo siguiente en consola:
+
+````
+El identificador $hola de tipo número es igual a 56
+El identificador $kilometros de tipo flotante es igual a 45.78
+
+{$kilometros=45.78, $hola=56}
+````
 
 ### Autor y Licencia
 Copyright 2021-2022 by Yisus Efebei and M45t3r L3g10n
