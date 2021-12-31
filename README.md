@@ -927,7 +927,7 @@ Clase que sirve para realizar la agrupación de Tokens en un ArrayList de Produc
                         <dd><code>errorMsg</code> - El mensaje de error en caso de que dicha agrupación sea
                             un error</dd>
                         <dd><code>indexComponent</code> - El índice del componente o producción del que
-                            deseamos hacer referencia en el error</dd>
+                            deseamos hacer referencia en el error (acepta índices negativos)</dd>
                         <dd><code>production</code> - ArrayList de Producciones donde deseamos guardar las
                             agrupaciones realizadas</dd>
                     </dl>
@@ -2070,7 +2070,7 @@ Imaginemos que cambiamos la estructura de la agrupación. En vez de que el punto
         // Agrupación con sintaxis correcta
         gramatica.group("FUNCION_COMPLET", "LLAVE_A PUNTO_COMA FUNCION PUNTO_COMA LLAVE_C");
 ````
-Ahora bien, sabemos que todas las producciones (LLAVE_A, LLAVE_C, FUNCION, PUTNO_COMA) son de un solo token. Pero, ¿y si fueran de más de 1000 tokens cada una? EL mostrar el error inicial o final no es suficiente, sino que tenemos que hacer eferencia a un componente. Si queremos indicar el componente, añadimos un parámetro más llamado indexComponent. El índice del componente del que haremo referencia será el de FUNCION. El siguiente código hará la agrupación del error en caso de que falte un PUNTO_COMA antes de FUNCION:
+Ahora bien, sabemos que todas las producciones (LLAVE_A, LLAVE_C, FUNCION, PUNTO_COMA) son de un solo token. Pero, ¿y si fueran de más de 100000 tokens cada una? EL mostrar el error inicial o final no es suficiente, sino que tenemos que hacer eferencia a un componente. Si queremos indicar el componente, añadimos un parámetro más llamado indexComponent. El índice del componente del que haremos referencia será el de FUNCION. El siguiente código hará la agrupación del error en caso de que falte un PUNTO_COMA antes de FUNCION:
 
 ````java
         // Hacemos que en las agrupaciones de errores nos muestre la línea/columna inicial
