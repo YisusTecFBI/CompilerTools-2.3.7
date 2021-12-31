@@ -1642,5 +1642,94 @@ Token(), PARENTESIS_C, 5, 13),
 Token(color, TIPO_DATO, 9, 36)])
 ````
 Como podrá darse cuenta, la clase Grammar nos mostrará información de la agrupación que haya realizado, así como la reducción de producciones que hayan ocurrido. Al final podremos observar que se generó una sola producción con 3 tokens. La expresión regular que usamos en el paso anterior es muy sencilla, pero soporta cualquier expresión sin importar su complejidad, dándonos el total control de agrupaciones que queramos realizar.
+
+Ahora bien, puede ser que nosotros estemos intentando meter una expresión regular incorrecta:
+
+````java
+gramatica.group("FUNCION", "PARENTESIS_A PARENTESIS_C TIPO_DATO )*");
+````
+
+En consecuenta, en consola veremos lo siguiente:
+
+````
+....................................................................................................
+**** Agrupación 1 "FUNCION" no realizada****
+Δ Resuelva los errores a continuación descritos Δ:
+1. Formato de expresión regular inválido: Unmatched closing ')' near index 35
+PARENTESIS_A PARENTESIS_C TIPO_DATO )*
+                                   ^
+
+**** Mostrando gramáticas ****
+
+....................................................................................................
+Produccion(PARENTESIS_A, 3, 41, 3, 41, [
+Token((, PARENTESIS_A, 3, 41)])
+
+....................................................................................................
+Produccion(PARENTESIS_C, 5, 13, 5, 13, [
+Token(), PARENTESIS_C, 5, 13)])
+
+....................................................................................................
+Produccion(TIPO_DATO, 9, 36, 9, 36, [
+Token(color, TIPO_DATO, 9, 36)])
+````
+Como podremos observar, no se realizó ninguna agrupación de Tokens. De igual manera, vemos que la agrupación 1 no fue realizada por un formato de expresión regular inválido. Usted tiene que asegurarse de que las expresiones regulares introducidas sean correctas para poder obtener la agrupación deseada. Ahora bien, las validaciones internas que hace la clase Grammar consumen tiempo de procesamiento. Si al final usted ya ha verificado que ninguna expresión regular o parámetro es incorrecto, podemos desactivar las validaciones mediante el siguiente método:
+
+````java
+        // Desactivamos las validaciones internas de la clase
+        gramatica.disableValidations();
+````
+Precaución: si usted desactiva las validaciones y alguna agrupación contiene algún parámetro incorrecto, se nos generará un error en tiempo de ejecución. Supongamos que no corregimos la expresión regular y aún así desactivamos las validaciones:
+
+````java
+        // Desactivamos las validaciones internas de la clase
+        gramatica.disableValidations();
+
+        /* Hacemos una agrupación, pasando como parámetro el nombre de la nueva producción,
+        seguido de la expresión regular
+         */
+        gramatica.group("FUNCION", "PARENTESIS_A PARENTESIS_C TIPO_DATO)*");
+````
+
+En consecuencia, tendremos un error en tiempo de ejecución, deteniendo por completo la ejecución de nuestro programa:
+
+````
+....................................................................................................
+Exception in thread "main" java.util.regex.PatternSyntaxException: Unmatched closing ')' near index 32
+PARENTESIS_APARENTESIS_CTIPO_DATO)*
+                                ^
+	at java.base/java.util.regex.Pattern.error(Pattern.java:2027)
+	at java.base/java.util.regex.Pattern.compile(Pattern.java:1786)
+	at java.base/java.util.regex.Pattern.<init>(Pattern.java:1428)
+	at java.base/java.util.regex.Pattern.compile(Pattern.java:1068)
+	at java.base/java.util.regex.Pattern.matches(Pattern.java:1173)
+	at java.base/java.lang.String.matches(String.java:2024)
+	at compilerTools.Grammar.group(Grammar.java:186)
+	at compilerTools.Grammar.group(Grammar.java:399)
+	at NewClass.main(NewClass.java:36)
+/home/yisus/snap/netbeans/common/52/executor-snippets/run.xml:111: The following error occurred while executing this line:
+/home/yisus/snap/netbeans/common/52/executor-snippets/run.xml:68: Java returned: 1
+BUILD FAILED (total time: 0 seconds)
+````
+
+Las impresiones en consola de las agrupaciones realizadas también consumen tiempo de procesamiento. Aunque no ejecutemos el método show(), estás seguirán mostrándose:
+````
+....................................................................................................
+**** Agrupación 1 "FUNCION" realizada con éxito ****
+Cantidad de componentes: 3
+La cantidad de producciones se redujo de 3 a 1
+````
+
+Lo único que tenemos que hacer, es mandar a llamar el siguiente método par que no muestre los mensajes informativos de las agrupaciones a realizar:
+````java
+        // Desactivamos los mensajes informativos de las agrupaciones
+        gramatica.disableMessages();
+        /* Hacemos una agrupación, pasando como parámetro el nombre de la nueva producción,
+        seguido de la expresión regular
+         */
+        gramatica.group("FUNCION", "PARENTESIS_A PARENTESIS_C TIPO_DATO");
+````
+
+Lo anterior no generará ninguna salida en consola.
 ### Autor y Licencia
 Copyright 2021-2022 by Yisus Efebei and M45t3r L3g10n
