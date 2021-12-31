@@ -1,7 +1,7 @@
 CompilerTools 2.3.7 - Herramienta de compilador estándar
 ========================================================
 ### Introducción
-CompilerTools es una herramienta diseñada para el diseño de un compilador básico en Java. Si bien, no es la herramienta ideal para hacer un compilador con gran cantidad de gramáticas y palabras reservadas, es lo suficientemente intuitivo y funcional para introducirnos en el mundo de los compiladores. Cumple con ser lo bastante didáctico para estudiantes y aficionados al mundo de la programación.  
+CompilerTools es una herramienta creada para el diseño de un compilador básico en Java. Si bien, no es la herramienta ideal para hacer un compilador con gran cantidad de gramáticas y palabras reservadas, es lo suficientemente intuitivo y funcional para introducirnos en el mundo de los compiladores. Cumple con ser lo bastante didáctico para estudiantes y aficionados al mundo de la programación.  
 
 Características clave:
 - Implementa un autocompletador de código en un JTextComponent.
@@ -1615,7 +1615,7 @@ Token(color, TIPO_DATO, 9, 36)])
 
 Como podrá observar, nos generó 3 producciones, estas producciones a su vez contienen un solo Token. El nombre de la producción es el mismo que el nombre del token que almacena. El primer parámetro es el nombre de la producción, la línea inicial, columna inicial, línea final, columna final y el arreglo de tokens. En este caso, tanto la línea/columna inicial y final son las mismas ya que solo contiene un solo Token. En caso de haber más tokens en la Producción, la línea/columna inicial de la Producción será igual a la línea/columna del primer Token; siguiendo la misma lógica, la línea/columna final será igual a la línea/columna final del último Token.
 
-Realizaremos las agrupaciones de nuestros tokens. Supongamos que inventamos una nueva gramática donde debe haber un paréntesis que abre y que cierra al inicio, seguido de un tipo de dato. Debemos tener claro que el objeto Grammar que cremos anteriormente realizará las agrupaciones de Tokens de acuerdo al orden en el que estén en el ArrayList que recibió como parámetro. Haremos la agrupación de la siguiente manera:
+Realizaremos las agrupaciones de nuestros tokens. Supongamos que inventamos una nueva gramática donde debe haber un paréntesis que abre y que cierra al inicio, seguido de un tipo de dato. Debemos tener claro que el objeto Grammar que creamos anteriormente realizará las agrupaciones de Tokens de acuerdo al orden en el que estén en el ArrayList que recibió como parámetro. Haremos la agrupación de la siguiente manera:
 
 ````java
         /* Hacemos una agrupación, pasando como parámetro el nombre de la nueva producción,
@@ -1649,7 +1649,7 @@ Ahora bien, puede ser que nosotros estemos intentando meter una expresión regul
 gramatica.group("FUNCION", "PARENTESIS_A PARENTESIS_C TIPO_DATO )*");
 ````
 
-En consecuenta, en consola veremos lo siguiente:
+En consecuencia, en consola veremos lo siguiente:
 
 ````
 ....................................................................................................
@@ -1765,6 +1765,7 @@ Para el siguiente ejemplo, introduciremos nuevos tokens:
 ````
 
 Supongamos que deseamos meter los siguientes tokens en una sola agrupación:
+
 ````java
         Token tk4 = new Token("{", "LLAVE_A", 4, 24);
         Token tk5 = new Token("{", "LLAVE_A", 5, 76);
@@ -1774,6 +1775,7 @@ Supongamos que deseamos meter los siguientes tokens en una sola agrupación:
         Token tk9 = new Token("}", "LLAVE_C", 9, 43);
         Token tk10 = new Token("}", "LLAVE_C", 10, 13);
 ````
+
 Tenemos diferentes maneras de hacerlo. La primera es con una expresión regular:
 
 ````java
@@ -1815,7 +1817,7 @@ Token(}, LLAVE_C, 9, 43),
 Token(}, LLAVE_C, 10, 13)])
 ````
 
-Explicaremos de que manera podemos manipular las agrupaciones. Al observar una expresión regular, nosotros por intuición sabemos que expresión regular genera una sola cadena, por lo tanto, solo podrá cumplirse con una cadena. Sin embargo, la clase Grammar eso no lo sabe. Podemos hacer que haga una agrupación ya sea solamente en la primera ocurrencia o no. Por defecto no lo hace, pero nosotros podemos especificarlo en el método group. Por ejemplo, supongamos que deseamos agrupar una llave que abre, seguido de una función y que termina con una o más llaves que cierran. La agrupación se hace de la siguiente manera:
+Explicaremos de que otra manera podemos manipular las agrupaciones. Al observar una expresión regular, nosotros por intuición sabemos que expresión regular genera una sola cadena, por lo tanto, solo podrá cumplirse con una cadena. Sin embargo, la clase Grammar eso no lo sabe. Podemos hacer que haga una agrupación ya sea solamente en la primera ocurrencia o no. Por defecto no lo hace, pero nosotros podemos especificarlo en el método group. Por ejemplo, supongamos que deseamos agrupar una llave que abre, seguido de una función y que termina con una o más llaves que cierran. La agrupación se hace de la siguiente manera:
 
 ````java
         gramatica.group("FUNCION","LLAVE_A FUNCION (LLAVE_C)+");
@@ -2022,6 +2024,98 @@ Lo anterior nos mostrará lo siguiente en consola:
 La cantidad de producciones se redujo de 7 a 6
 
 [Error sintáctico 2: Caracter inválido [8, 13]]
+````
+
+A continuación explicaremos como guardar nuestras agrupaciones en un ArrayList. Tomaremos como ejemplo los siguientes grupos de tokens:
+
+````java
+	// Declaramos los tokens
+        Token tk1 = new Token("número", "TIPO_DATO", 1, 94);
+        Token tk2 = new Token("$hola", "IDENTIFICADOR", 2, 56);
+        Token tk3 = new Token("=", "OP_ASIG", 3, 65);
+        Token tk4 = new Token("56", "VALOR", 4, 24);
+        Token tk5 = new Token("flotante", "TIPO_DATO", 5, 76);
+        Token tk6 = new Token("$kilometros", "IDENTIFICADOR", 6, 45);
+        Token tk7 = new Token("=", "OP_ASIG", 7, 65);
+        Token tk8 = new Token("45.78", "VALOR", 8, 15);
+        // Agregamos los tokens a un ArrayList de tipo Token
+        ArrayList<Token> tokens = new ArrayList<>();
+        tokens.add(tk1);
+        tokens.add(tk2);
+        tokens.add(tk3);
+        tokens.add(tk4);
+        tokens.add(tk5);
+        tokens.add(tk6);
+        tokens.add(tk7);
+        tokens.add(tk8);
+````
+
+Supongamos que deseamos agrupar aquellos tokens o producciones que inician con un tipo de dato, seguido de un identificador, un operador de asignación y un valor:
+
+````java
+        gramatica.group("IDENT_COMPLET", "TIPO_DATO IDENTIFICADOR OP_ASIG VALOR");
+````
+
+Lo anterior mostrará lo siguiente en consola:
+
+````
+....................................................................................................
+**** Agrupación 1 "IDENT_COMPLET" realizada con éxito ****
+Cantidad de componentes: 4
+La cantidad de producciones se redujo de 8 a 2
+
+
+**** Mostrando gramáticas ****
+
+....................................................................................................
+Produccion(IDENT_COMPLET, 1, 94, 4, 24, [
+Token(número, TIPO_DATO, 1, 94),
+Token($hola, IDENTIFICADOR, 2, 56),
+Token(=, OP_ASIG, 3, 65),
+Token(56, VALOR, 4, 24)])
+
+....................................................................................................
+Produccion(IDENT_COMPLET, 5, 76, 8, 15, [
+Token(flotante, TIPO_DATO, 5, 76),
+Token($kilometros, IDENTIFICADOR, 6, 45),
+Token(=, OP_ASIG, 7, 65),
+Token(45.78, VALOR, 8, 15)])
+````
+
+Ahora bien, supongamos que nosotros deseamos guardar esas producciones en un ArrayList de tipo Producción. Lo que tenemos que hacer primero es crear el ArrayList. Después, pasar dicho ArrayList como parámetro en en el método group. Al final, imprimermos dicho ArrayList:
+
+
+````java
+ 	// Declaramos un ArrayList de tipo Producción para guardar los identificadores
+        ArrayList<Production> identificadores = new ArrayList<>();
+
+        gramatica.group("IDENT_COMPLET", "TIPO_DATO IDENTIFICADOR OP_ASIG VALOR", identificadores);
+
+	// Mostramos el ArrayList
+        for (Production ident : identificadores) {
+            System.out.println("-".repeat(20));
+            System.out.println(ident);
+            System.out.println("-".repeat(20));
+        }
+````
+
+Lo anterior mostrará lo siguiente en consola:
+
+````
+--------------------
+Produccion(IDENT_COMPLET, 1, 94, 4, 24, [
+Token(número, TIPO_DATO, 1, 94),
+Token($hola, IDENTIFICADOR, 2, 56),
+Token(=, OP_ASIG, 3, 65),
+Token(56, VALOR, 4, 24)])
+--------------------
+--------------------
+Produccion(IDENT_COMPLET, 5, 76, 8, 15, [
+Token(flotante, TIPO_DATO, 5, 76),
+Token($kilometros, IDENTIFICADOR, 6, 45),
+Token(=, OP_ASIG, 7, 65),
+Token(45.78, VALOR, 8, 15)])
+--------------------
 ````
 
 ### Autor y Licencia
