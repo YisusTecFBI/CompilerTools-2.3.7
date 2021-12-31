@@ -1449,8 +1449,6 @@ Clase para el almacenamiento del índice de inicio, tamaño y color de una caden
             <ul>
                 <li>
                     <h4>getStart</h4>
-                    <pre>public&nbsp;int&nbsp;getStart()</pre>
-                    <div>Función para obtener el índice de inicio de la cadena.</div>
                     <dl>
                         <dt><span>Retorna:</span></dt>
                         <dd>int Índice de inicio</dd>
@@ -1463,8 +1461,6 @@ Clase para el almacenamiento del índice de inicio, tamaño y color de una caden
             <ul>
                 <li>
                     <h4>getSize</h4>
-                    <pre>public&nbsp;int&nbsp;getSize()</pre>
-                    <div>Función para obtener el tamaño de la cadena.</div>
                     <dl>
                         <dt><span>Retorna:</span></dt>
                         <dd>int El tamaño de la cadena</dd>
@@ -1477,8 +1473,6 @@ Clase para el almacenamiento del índice de inicio, tamaño y color de una caden
             <ul>
                 <li>
                     <h4>getColor</h4>
-                    <pre>public&nbsp;java.awt.Color&nbsp;getColor()</pre>
-                    <div>Función para obtener el color de la cadena.</div>
                     <dl>
                         <dt><span>Retorna:</span></dt>
                         <dd>Color El Color de la cadena</dd>
