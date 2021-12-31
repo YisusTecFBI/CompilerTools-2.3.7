@@ -1143,6 +1143,243 @@ Clase realizada para el almacenamiento de un grupo de tokens, especificando el n
 </tr>
 </table>
 
+<section role="region">
+    <ul>
+        <li><a id="method.detail">
+                <!--   -->
+            </a>
+            <h3>Method Detail</h3>
+            <a id="getName()">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>getName</h4>
+                    <dl>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>String Nombre de la producción</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="getTokens()">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>getTokens</h4>
+                    <dl>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>ArrayList&lt;Token&gt; El ArrayList de tokens</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="getLine()">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>getLine</h4>
+                    <dl>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>int La línea inicial</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="getColumn()">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>getColumn</h4>
+                    <dl>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>int La columna inicial</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="getFinalLine()">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>getFinalLine</h4>
+                    <dl>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>int La línea final</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="getFinalColumn()">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>getFinalColumn</h4>
+                    <dl>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>int La columna final</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="getSizeTokens()">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>getSizeTokens</h4>
+                    <dl>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>int Cantidad de tokens</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="addTokens(compilerTools.Production)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>addTokens</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>prod</code> - La producción de la que se desea extraer los tokens para
+                            agregarlos</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="lexemeRank(int)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>lexemeRank</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>i</code> - La posición del token del que se desea extraer el lexema</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>String El lexema del token</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="lexicalCompRank(int)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>lexicalCompRank</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>i</code> - La posición del token del que se desea extraer el componente
+                            léxico</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>String El componente léxico del token</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="tokenRank(int)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>tokenRank</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>i</code> - La posición del token que se desea obtener</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>Token El token</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="lexemeRank(int,int)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>lexemeRank</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>i</code> - posición inicial del rango</dd>
+                        <dd><code>j</code> - posición final del rango</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>String Los lexemas concatenados</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="lexicalCompRank(int,int)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>lexicalCompRank</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>i</code> - posición inicial del rango</dd>
+                        <dd><code>j</code> - posición final del rango</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>String Los componentes léxicos concatenados</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="tokenRank(int,int)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>tokenRank</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>i</code> - posición inicial del rango</dd>
+                        <dd><code>j</code> - posición final del rango</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>ArrayList&lt;Token&gt; El ArrayList de tokens dentro del rango</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="nameEqualTo(java.lang.String)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>nameEqualTo</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>name</code> - La cadena que se desea comparar</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>boolean Retorna verdadero si el nombre es igual a la otra cadena,
+                            falso en caso contrario</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="nameEqualTo(java.lang.String[])">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>nameEqualTo</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>names</code> - El arreglo de cadenas que se desea comparar</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>boolean Retorna verdadero si el nombre es igual a alguna de las
+                            cadenas, falso en caso contrario</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="setName(java.lang.String)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>setName</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>name</code> - El nuevo nombre de la producción</dd>
+                    </dl>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
 ### TextColor
 Clase para el almacenamiento del índice de inicio, tamaño y color de una cadena. Las funciones o métodos que contiene son los siguientes:
 <table>
