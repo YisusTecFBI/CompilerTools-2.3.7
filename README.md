@@ -589,3 +589,34 @@ Clase realizada para el almacenamiento de un grupo de tokens, especificando el n
 </td>
 </tr>
 </table>
+
+### TextColor
+Clase para el almacenamiento del índice de inicio, tamaño y color de una cadena. Las funciones o métodos que contiene son los siguientes:
+<table>
+<tr>
+<th>Modificador y tipo</th>
+<th>Método</th>
+<th>Descripción</th>
+</tr>
+<tr>
+<td><code>java.awt.Color</code></td>
+<th><code><span>getColor</span>()</code></th>
+<td>
+<div>Función para obtener el color de la cadena.</div>
+</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<th><code><span>getSize</span>()</code></th>
+<td>
+<div>Función para obtener el tamaño de la cadena.</div>
+</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<th><code><span>getStart</span>()</code></th>
+<td>
+<div>Función para obtener el índice de inicio de la cadena.</div>
+</td>
+</tr>
+</table>
