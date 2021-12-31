@@ -2073,31 +2073,37 @@ Imaginemos que cambiamos la estructura de la agrupación. En vez de que el punto
 Ahora bien, sabemos que todas las producciones (LLAVE_A, LLAVE_C, FUNCION, PUTNO_COMA) son de un solo token. Pero, ¿y si fueran de más de 1000 tokens cada una? EL mostrar el error inicial o final no es suficiente, sino que tenemos que hacer eferencia a un componente. Si queremos indicar el componente, añadimos un parámetro más llamado indexComponent. El índice del componente del que haremo referencia será el de FUNCION. El siguiente código hará la agrupación del error en caso de que falte un PUNTO_COMA antes de FUNCION:
 
 ````java
-	// Hacemos que en las agrupaciones de errores nos muestre la línea/columna inicial
+        // Hacemos que en las agrupaciones de errores nos muestre la línea/columna inicial
         gramatica.initialLineColumn();
         /* Agrupación con sintaxis incorrecta, pasando como parámetro el nombre de la nueva producción,
            la expresión regular, el número de error, el mensaje de error y el componente de referencia 
          */
-        gramatica.group("FUNCION_COMPLET", "LLAVE_A PUNTO_COMA FUNCION LLAVE_C",
-                1, "Error sintáctico {}: Falta el punto y coma antes de la función [#, %]", 2);
+        gramatica.group("FUNCION_COMPLET", "LLAVE_A FUNCION PUNTO_COMA LLAVE_C",
+                1, "Error sintáctico {}: Falta el punto y coma antes de la función [#, %]", 1);
 ````
 
 Lo anterior nos mostraría lo siguiente en consola:
 
 ````
-[Error sintáctico 2: Falta el punto y coma antes de la función [6, 23]]
+[Error sintáctico 1: Falta el punto y coma antes de la función [6, 23]]
 ````
 El siguiente código hará la agrupación del error en caso de que falte un PUNTO_COMA después de FUNCION:
 
 ````java
-	gramatica.finalLineColumn();
+	// Hacemos que en las agrupaciones de errores nos muestre la línea/columna final
+        gramatica.finalLineColumn();
         /* Agrupación con sintaxis incorrecta, pasando como parámetro el nombre de la nueva producción,
            la expresión regular, el número de error, el mensaje de error y el componente de referencia 
          */
-        gramatica.group("FUNCION_COMPLET", "LLAVE_A FUNCION PUNTO_COMA LLAVE_C",
-                2, "Error sintáctico {}: Falta el punto y coma antes de la función [#, %]", -3);
+        gramatica.group("FUNCION_COMPLET", "LLAVE_A PUNTO_COMA FUNCION LLAVE_C",
+                2, "Error sintáctico {}: Falta el punto y coma después de la función [#, %]", -2)
 ````
 
+Después, nos mostraría lo siguiente en consola:
+````
+[Error sintáctico 2: Falta el punto y coma después de la función [6, 23]]
+````
+Si observamos bien, tanto el error sintáctico 1 y 2 están en la misma línea/columna debido a que la producción FUNCION está compuesta de un solo token. Si stuviera compuesta de más tokens, nos mostrará ya sea la línea/columna inicial/final en su respectivo caso. 
 
 También podemos eliminar aquellas producciones o grupos de tokens que desemos descartar. Mandaremos a llamar la función delete, la cual nos permite eliminar una producción ya sea de forma silenciosa o bien, agregando un mensaje de error. Supongamos que deseamos eliminar el punto y coma, argumentando que es un caracter inválido en nuestro lenguaje:
 
