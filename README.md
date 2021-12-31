@@ -1562,3 +1562,6 @@ Clase para almacenar los atributos de un token (lexema, componente léxico, lín
         </li>
     </ul>
 </section>
+
+### Autor y Licencia
+Copyright 2021-2022 by Yisus Efebei and M45t3r L3g10n
