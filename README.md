@@ -495,6 +495,278 @@ Clase creada para la ejecución de funciones que son de utilidad en un compilado
 </tr>
 </table>
 
+<section role="region">
+    <ul>
+        <li><a id="method.detail">
+                <!--   -->
+            </a>
+            <h3>Method Detail</h3>
+            <a id="clearDataInTable(javax.swing.JTable)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>clearDataInTable</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>table</code> - La tabla que se desea limpiar</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="addRowDataInTable(javax.swing.JTable,java.lang.Object[])">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>addRowDataInTable</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>table</code> - La tabla a la que se desea agregar el renglón</dd>
+                        <dd><code>rowData</code> - El arreglo de objetos que sea desea agregar como renglón;
+                            cada posición representa una columna</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="insertAsteriskInName(javax.swing.JFrame,javax.swing.text.JTextComponent,java.lang.Runnable)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>insertAsteriskInName</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>jFrame</code> - JFrame del cual se desea modificar el título durante una
+                            edición</dd>
+                        <dd><code>jTextComponent</code> - JTextComponent que se tomará como referencia de
+                            edición</dd>
+                        <dd><code>function</code> - Función que se ejecutará al cambiar el título del JFrame
+                            durante la edición de un archivo</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="insertAsteriskInName(javax.swing.JFrame,javax.swing.text.JTextComponent)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>insertAsteriskInName</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>jFrame</code> - JFrame del cual se desea modificar el título durante una
+                            edición</dd>
+                        <dd><code>jTextComponent</code> - JTextComponent que se tomará como referencia de
+                            edición</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="centerWord(java.lang.String,java.lang.String,java.lang.String,int)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>centerWord</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>word</code> - La cadena que se desea centrar</dd>
+                        <dd><code>charLeft</code> - El caracter con el que se desea rellenar el lado
+                            izquierdo</dd>
+                        <dd><code>charRight</code> - El caracter con el que se desea rellenar el lado derecho</dd>
+                        <dd><code>quantity</code> - El tamaño total de la cadena resultante</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>String La cadena centrada con caracteres a la izquierda y derecha</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="formatString(java.lang.String,java.lang.String,java.lang.String)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>formatString</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>str</code> - La cadena en la cual se desea hacer el remplazo</dd>
+                        <dd><code>format</code> - La cadena a remplazar</dd>
+                        <dd><code>replace</code> - La cadena de remplazo</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>String La cadena original con el remplazo realizado</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="colorTextPane(java.util.ArrayList,javax.swing.JTextPane,java.awt.Color)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>colorTextPane</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>textsColor</code> - El ArrayList de textos de color</dd>
+                        <dd><code>jtpCode</code> - El JTextPane en el cual se desea cambiar el color de los
+                            caracteres</dd>
+                        <dd><code>originalColor</code> - El color por defecto de aquellos caracteres que no
+                            estén dentro del rango</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="setLineNumberOnJTextComponent(javax.swing.text.JTextComponent,int,java.awt.Color)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>setLineNumberOnJTextComponent</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>jTextComponent</code> - el JTextComponent en el cual se desea mostrar los
+                            números de línea</dd>
+                        <dd><code>minimumDisplayDigits</code> - La cantidad mínima de espacios de dígitos
+                            mostradas en el numerador</dd>
+                        <dd><code>color</code> - El color del número de línea actual en la que se esté
+                            posicionado</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="isLetter(java.lang.String)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>isLetter</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>letter</code> - La letra que se desea analizar</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>boolean Verdadero si la cadena es una letra, falso en caso
+                            contrario</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="isWord(java.lang.String)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>isWord</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>word</code> - La palabra que se desea analizar</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>boolean Verdadero si la cadena es una palabra, falso en caso
+                            contrario</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="isDigit(java.lang.String)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>isDigit</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>digit</code> - El dígito que se desea analizar</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>boolean Verdadero si la cadena es un dígito, falso en caso
+                            contrario</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="isNumber(java.lang.String)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>isNumber</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>number</code> - El número que se desea analizar</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>boolean Verdadero si la cadena es un número, falso en caso
+                            contrario</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="isSpace(java.lang.String)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>isSpace</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>space</code> - El espacio que se desea analizar</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>boolean Verdadero si la cadena es un espacio vacío, falso en caso
+                            contrario</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="isSpaceOrSaltLine(java.lang.String)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>isSpaceOrSaltLine</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>space</code> - El espacio que se desea analizar</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>boolean Verdadero si la cadena es un espacio vacío o salto de
+                            línea, falso en caso contrario</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a
+                id="setAutocompleterJTextComponent(java.lang.String[],javax.swing.text.JTextComponent,java.lang.Runnable)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>setAutocompleterJTextComponent</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>words</code> - Las palabras clave de las cuales se buscarán coincidencias</dd>
+                        <dd><code>jTextComponent</code> - El JtextComponent del que se desea implementar el
+                            método de autocompletado</dd>
+                        <dd><code>function</code> - La función que se desea ejecutar después de seleccionar
+                            cualquier palabra clave del JPopupMenu</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="splitCodeInCodeBlocks(java.util.ArrayList,java.lang.String,java.lang.String,java.lang.String)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>splitCodeInCodeBlocks</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>tokens</code> - El ArrayList de tokens resultante del análisis léxico</dd>
+                        <dd><code>blockInitiator</code> - El bloque o lexema iniciador de bloque de código</dd>
+                        <dd><code>blockTerminator</code> - El bloque o lexema terminador de bloque de código</dd>
+                        <dd><code>sentenceTerminator</code> - El bloque o lexema terminador de sentencia</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>CodeBlock El bloque de código principal con sus bloques y
+                            subbloques de código</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="sortErrorsByLineAndColumn(java.util.ArrayList)">
+                <!--   -->
+            </a>
+            <ul class="blockListLast">
+                <li>
+                    <h4>sortErrorsByLineAndColumn</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>errors</code> - El ArrayList de errores</dd>
+                    </dl>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
 ### Grammar
 Clase que sirve para realizar la agrupación de Tokens en un ArrayList de Producciones junto con la agregación de Errores de la agrupación deseada. La clase utiliza el manejo de índices, expresiones regulares y el uso de parámetros como referencia y valor. Por defecto, al iniciar se crean 'n' producciones de 'n' cantidad de tokens recibidos como parámetro. Es decir, que cada Producción contendrá un solo Token. Las funciones o métodos que contiene son los siguientes:
 <table>
