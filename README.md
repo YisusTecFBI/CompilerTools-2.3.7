@@ -1323,8 +1323,8 @@ Clase realizada para el almacenamiento de un grupo de tokens, especificando el n
                     <h4>lexemeRank</h4>
                     <dl>
                         <dt><span>Parámetros:</span></dt>
-                        <dd><code>i</code> - posición inicial del rango</dd>
-                        <dd><code>j</code> - posición final del rango</dd>
+                        <dd><code>i</code> - posición inicial del rango (acepta índices negativos)</dd>
+                        <dd><code>j</code> - posición final del rango (acepta índices negativos)</dd>
                         <dt><span>Retorna:</span></dt>
                         <dd>String Los lexemas concatenados</dd>
                     </dl>
@@ -1338,8 +1338,8 @@ Clase realizada para el almacenamiento de un grupo de tokens, especificando el n
                     <h4>lexicalCompRank</h4>
                     <dl>
                         <dt><span>Parámetros:</span></dt>
-                        <dd><code>i</code> - posición inicial del rango</dd>
-                        <dd><code>j</code> - posición final del rango</dd>
+                        <dd><code>i</code> - posición inicial del rango (acepta índices negativos)</dd>
+                        <dd><code>j</code> - posición final del rango (acepta índices negativos)</dd>
                         <dt><span>Retorna:</span></dt>
                         <dd>String Los componentes léxicos concatenados</dd>
                     </dl>
@@ -1353,8 +1353,8 @@ Clase realizada para el almacenamiento de un grupo de tokens, especificando el n
                     <h4>tokenRank</h4>
                     <dl>
                         <dt><span>Parámetros:</span></dt>
-                        <dd><code>i</code> - posición inicial del rango</dd>
-                        <dd><code>j</code> - posición final del rango</dd>
+                        <dd><code>i</code> - posición inicial del rango (acepta índices negativos)</dd>
+                        <dd><code>j</code> - posición final del rango (acepta índices negativos)</dd>
                         <dt><span>Retorna:</span></dt>
                         <dd>ArrayList&lt;Token&gt; El ArrayList de tokens dentro del rango</dd>
                     </dl>
