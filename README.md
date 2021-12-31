@@ -1679,7 +1679,7 @@ Como podremos observar, no se realizó ninguna agrupación de Tokens. De igual m
         // Desactivamos las validaciones internas de la clase
         gramatica.disableValidations();
 ````
-Precaución: si usted desactiva las validaciones y alguna agrupación contiene algún parámetro incorrecto, se nos generará un error en tiempo de ejecución. Supongamos que no corregimos la expresión regular y aún así desactivamos las validaciones:
+Precaución: Si usted desactiva las validaciones y alguna agrupación contiene algún parámetro incorrecto, se nos generará un error en tiempo de ejecución. Supongamos que no corregimos la expresión regular y aún así desactivamos las validaciones:
 
 ````java
         // Desactivamos las validaciones internas de la clase
@@ -1691,7 +1691,7 @@ Precaución: si usted desactiva las validaciones y alguna agrupación contiene a
         gramatica.group("FUNCION", "PARENTESIS_A PARENTESIS_C TIPO_DATO)*");
 ````
 
-En consecuencia, tendremos un error en tiempo de ejecución, deteniendo por completo la ejecución de nuestro programa:
+Por lo tanto, tendremos un error en tiempo de ejecución, deteniendo por completo la ejecución de nuestro programa:
 
 ````
 ....................................................................................................
@@ -1720,7 +1720,7 @@ Cantidad de componentes: 3
 La cantidad de producciones se redujo de 3 a 1
 ````
 
-Lo único que tenemos que hacer, es mandar a llamar el siguiente método par que no muestre los mensajes informativos de las agrupaciones a realizar:
+Lo único que tenemos que hacer, es mandar a llamar el siguiente método para que no muestre los mensajes informativos de las agrupaciones a realizar:
 ````java
         // Desactivamos los mensajes informativos de las agrupaciones
         gramatica.disableMessages();
@@ -1731,5 +1731,89 @@ Lo único que tenemos que hacer, es mandar a llamar el siguiente método par que
 ````
 
 Lo anterior no generará ninguna salida en consola.
+
+Para los siguientes ejemplos, introduciremos nuevos tokens:
+````
+        // Declaramos los tokens
+        Token tk1 = new Token("FUNCION", "FUNCION", 1, 94);
+        Token tk2 = new Token("FUNCION", "FUNCION", 2, 56);
+        Token tk3 = new Token("FUNCION", "FUNCION", 3, 65);
+        Token tk4 = new Token("{", "LLAVE_A", 4, 24);
+        Token tk5 = new Token("{", "LLAVE_A", 5, 76);
+        Token tk6 = new Token("{", "LLAVE_A", 6, 45);
+        Token tk7 = new Token("FUNCION", "FUNCION", 7, 65);
+        Token tk8 = new Token("}", "LLAVE_C", 8, 15);
+        Token tk9 = new Token("{", "LLAVE_C", 9, 43);
+        Token tk10 = new Token("}", "LLAVE_C", 10, 13);
+        // Agregamos los tokens a un ArrayList de tipo Token
+        ArrayList<Token> tokens = new ArrayList<>();
+        tokens.add(tk1);
+        tokens.add(tk2);
+        tokens.add(tk3);
+        tokens.add(tk4);
+        tokens.add(tk5);
+        tokens.add(tk6);
+        tokens.add(tk7);
+        tokens.add(tk8);
+        tokens.add(tk9);
+        tokens.add(tk10);
+        // ArrayList de ErrorLSSL
+        ArrayList<ErrorLSSL> errores = new ArrayList<>();
+
+        // Cremos el objeto de tipo Grammar, pasando como parámetro el ArrayList de Tokens y el ArrayList de errores
+        Grammar gramatica = new Grammar(tokens, errores);
+````
+
+Supongamos que deseamos meter los siguientes tokens en una sola agrupación:
+````java
+        Token tk4 = new Token("{", "LLAVE_A", 4, 24);
+        Token tk5 = new Token("{", "LLAVE_A", 5, 76);
+        Token tk6 = new Token("{", "LLAVE_A", 6, 45);
+        Token tk7 = new Token("FUNCION", "FUNCION", 7, 65);
+        Token tk8 = new Token("}", "LLAVE_C", 8, 15);
+        Token tk9 = new Token("{", "LLAVE_C", 9, 43);
+        Token tk10 = new Token("}", "LLAVE_C", 10, 13);
+````
+Tenemos diferentes maneras de hacerlo. La primera es con una expresión regular:
+
+````
+        gramatica.group("FUNCION","(LLAVE_A)+ FUNCION (LLAVE_C)+");
+````
+
+La segunda forma, es con el método loopForFunExecUntilChangeNotDetected, el cual se ejecutará de forma indefinida hasta que no se detecte ningún cambio en la cantidad de producciones. Agruparemos de forma indefinida una llave que abre, seguido de alguna producción con el nombre de 'FUNCION' y que termine con una llave que cierra:
+````java
+	gramatica.loopForFunExecUntilChangeNotDetected(() -> {
+            gramatica.group("FUNCION", "LLAVE_A FUNCION LLAVE_C");
+        });
+````
+
+Ambas formas generan la siguiente salida en consola:
+
+````
+**** Mostrando gramáticas ****
+
+....................................................................................................
+Produccion(FUNCION, 1, 94, 1, 94, [
+Token(FUNCION, FUNCION, 1, 94)])
+
+....................................................................................................
+Produccion(FUNCION, 2, 56, 2, 56, [
+Token(FUNCION, FUNCION, 2, 56)])
+
+....................................................................................................
+Produccion(FUNCION, 3, 65, 3, 65, [
+Token(FUNCION, FUNCION, 3, 65)])
+
+....................................................................................................
+Produccion(FUNCION, 4, 24, 10, 13, [
+Token({, LLAVE_A, 4, 24),
+Token({, LLAVE_A, 5, 76),
+Token({, LLAVE_A, 6, 45),
+Token(FUNCION, FUNCION, 7, 65),
+Token(}, LLAVE_C, 8, 15),
+Token({, LLAVE_C, 9, 43),
+Token(}, LLAVE_C, 10, 13)])
+````
+
 ### Autor y Licencia
 Copyright 2021-2022 by Yisus Efebei and M45t3r L3g10n
