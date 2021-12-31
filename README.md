@@ -1504,3 +1504,61 @@ Clase para almacenar los atributos de un token (lexema, componente léxico, lín
 </td>
 </tr>
 </table>
+
+<section role="region">
+    <ul>
+        <li><a id="method.detail">
+                <!--   -->
+            </a>
+            <h3>Method Detail</h3>
+            <a id="getLexeme()">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>getLexeme</h4>
+                    <dl>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>String El lexema</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="getLexicalComp()">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>getLexicalComp</h4>
+                    <dl>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>String El componente léxico</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="getLine()">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>getLine</h4>
+                    <dl>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>int El número de línea</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="getColumn()">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>getColumn</h4>
+                    <dl>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>int El número de columna</dd>
+                    </dl>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
