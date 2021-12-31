@@ -9,7 +9,7 @@ Características clave:
 - Cuenta con una clase para la manipulación de archivos, soportando operaciones como Nuevo, Abrir, Guardar y Guardar Como.
 - Se pueden crear errores ya sean Léxicos, Sintácticos, Semánticos o Lógicos.
 - Tiene diversas funciones automatizadas que realizan algunas operaciones complejas para la programación del compilador.
-- Se pueden crear gramáticas mediante la agrupación de Tokens mediante Producciones.
+- Se pueden crear gramáticas mediante la agrupación de Tokens a través de Producciones.
 - Implementa un contador de número de línea en un JTextComponent.
 - Cuenta con una función para el coloreo de palabras en un JTextComponent.
 - Implementa el almacenamiento de tokens y sus atributos básicos, los cuales son lexema, componente léxico, línea y columna.
