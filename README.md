@@ -2274,7 +2274,7 @@ La consola nos mostrará lo siguiente:
 [12 líneas...]-->([3 líneas...]-->([3 líneas...]-->([1 líneas...]), [1 líneas...]), [1 líneas...])
 ````
 
-Como puede observar, nos muestra la estructuración en bloques de nuestro código, divididos y agrupados mediante las sentencias y bloques iniciadores/ terminadores. Lo anterior es meramente informativo. Para obtener el código agrupado en bloques en orden de ejecución, mandamos a llamar el método getBlocksOfCodeInOrderOfExec en el objeto de tipo CodeBlock:
+Como puede observar, nos muestra la estructuración en bloques de nuestro código, divididos y agrupados mediante las sentencias y bloques iniciadores/terminadores. Lo anterior es meramente informativo. Para obtener el código agrupado en bloques en orden de ejecución, mandamos a llamar el método getBlocksOfCodeInOrderOfExec en el objeto de tipo CodeBlock:
 
 ````java
         System.out.println(code.getBlocksOfCodeInOrderOfExec());
