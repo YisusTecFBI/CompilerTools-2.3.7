@@ -269,16 +269,6 @@ Clase creada para la ejecución de funciones que son de utilidad en un compilado
 <tr>
 <td><code>static void</code></td>
 <th><code><span>setAutocompleterJTextComponent</span>&#8203;(java.lang.String[]&nbsp;words,
-                              javax.swing.text.JTextComponent&nbsp;jTextComponent)</code></th>
-<td>
-<div>Función para implementar el método de autocompletado de código en un
- JTextComponent, mostrando un JPopupMenu que contendrá todas la palabras
- coincidentes con lo que se ha escrito. Dicho JPopupMenu se activará al presionar CTRL + SPACE.</div>
-</td>
-</tr>
-<tr>
-<td><code>static void</code></td>
-<th><code><span>setAutocompleterJTextComponent</span>&#8203;(java.lang.String[]&nbsp;words,
                               javax.swing.text.JTextComponent&nbsp;jTextComponent,
                               java.lang.Runnable&nbsp;function)</code></th>
 <td>
@@ -322,6 +312,141 @@ Clase creada para la ejecución de funciones que son de utilidad en un compilado
  de código, tomando en cuenta tanto el lexema o bloque iniciador de
  código, el lexema o bloque terminador de código, y el lexema o bloque
  terminador de sentencia.</div>
+</td>
+</tr>
+</table>
+
+### Grammar
+Clase que sirve para realizar la agrupación de Tokens en un ArrayList de Producciones junto con la agregación de Errores de la agrupación deseada. La clase utiliza el manejo de índices, expresiones regulares y el uso de parámetros como referencia y valor. Por defecto, al inicar se crean 'n' producciones de 'n' cantidad de tokens recibidos como parámetro. Es decir, que cada Producción contendrá un solo Token. Las funciones o métodos que contiene son los siguientes:
+<table>
+<tr>
+<th>Modificador y tipo</th>
+<th>Método</th>
+<th>Descripción</th>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span>activateMessages</span>()</code></th>
+<td>
+<div>Función para activar los mensajes informativos en consola.</div>
+</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span>activateValidations</span>()</code></th>
+<td>
+<div>Función para activar las validaciones internas de la clase.</div>
+</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span>delete</span>&#8203;(java.lang.String&nbsp;nameProduction)</code></th>
+<td>
+<div>Función para eliminar una producción de manera silenciosa.</div>
+</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span>delete</span>&#8203;(java.lang.String[]&nbsp;namesProduction)</code></th>
+<td>
+<div>Función para eliminar un conjunto de producciones de manera silenciosa.</div>
+</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span>delete</span>&#8203;(java.lang.String[]&nbsp;namesProduction,
+      int&nbsp;errorNumber)</code></th>
+<td>
+<div>Función para eliminar un conjunto de producciones y especificar el número
+ de error de dichas producciones eliminadas.</div>
+</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span class="memberNameLink">delete</span>&#8203;(java.lang.String[]&nbsp;namesProduction,
+      int&nbsp;errorNumber,
+      java.lang.String&nbsp;errorMsg)</code></th>
+<td>
+<div>Función para eliminar un conjunto de producciones y especificar el número
+ y mensaje de error de dichas producciones eliminadas.</div>
+</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span>delete</span>&#8203;(java.lang.String&nbsp;nameProduction,
+      int&nbsp;errorNumber)</code></th>
+<td class="colLast">
+<div class="block">Función para eliminar una producción y especificar el número de error de
+ dicha producción eliminada.</div>
+</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span>delete</span>&#8203;(java.lang.String&nbsp;nameProduction,
+      int&nbsp;errorNumber,
+      java.lang.String&nbsp;errorMsg)</code></th>
+<td>
+<div>Función para eliminar una producción y especificar el número y mensaje de
+ error de dicha producción eliminada.</div>
+</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span>disableMessages</span>()</code></th>
+<td>
+<div>Función para desactivar los mensajes informativos en consola.</div>
+</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span>disableValidations</span>()</code></th>
+<td>
+<div>Función para desactivar las validaciones internas de la clase.</div>
+</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span>finalLineColumn</span>()</code></th>
+<td>
+<div>Método para indicar que el error de la agrupación debe de mostrar la
+ línea y columna final de la producción indicada.</div>
+</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span>group</span>&#8203;(java.lang.String&nbsp;nameProduction,
+     java.lang.String&nbsp;expReg,
+     java.lang.String[]&nbsp;conmponents,
+     boolean&nbsp;stopAtFirstOcurrence,
+     int&nbsp;errorNumber,
+     java.lang.String&nbsp;errorMsg,
+     int&nbsp;indexComponent,
+     java.util.ArrayList&lt;Production&gt;&nbsp;production)</code></th>
+<td>
+<div>Función que realiza la agrupación de Tokens en Producciones.</div>
+</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span>initialLineColumn</span>()</code></th>
+<td>
+<div >Método para indicar que el error de la agrupación debe de mostrar la
+ línea y columna inicial de la producción indicada.</div>
+</td>
+</tr>
+<tr>
+<td ><code>void</code></td>
+<th><code><span>loopForFunExecUntilChangeNotDetected</span>&#8203;(java.lang.Runnable&nbsp;function)</code></th>
+<td>
+<div>Método que ejecutará una función de forma indefinida hasta que el tamaño
+ de producciones deje de disminuir.</div>
+</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span>show</span>()</code></th>
+<td>
+<div class="block">Función para imprimir en consola las gramáticas o producciones de tokens.</div>
 </td>
 </tr>
 </table>
