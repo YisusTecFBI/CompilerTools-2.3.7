@@ -2041,6 +2041,28 @@ La cantidad de producciones se redujo de 7 a 6
 
 [Error sintáctico 2: Caracter inválido [8, 13]]
 ````
+Si observamos bien, la línea y columna que nos está indicando el error es la inicial. Si queremos que nos indique la línea y columna final haremos lo siguiente. Antes de iniciar las agrupaciones de errores, mandaremos a llamar el método finalLineColumn. Después de hacer la agrupación del error, mandamos a llamar el método initialLineColumn para volver a mostrar la línea/columna inicial.
+
+````java
+ 	// Hacemos que en las agrupaciones de errores nos muestre la línea/columna final
+        gramatica.finalLineColumn();
+        /* Agrupación con sintaxis incorrecta, pasando como parámetro el nombre de la nueva producción,
+           la expresión regular, el número de error y el mensaje de error 
+         */
+        gramatica.group("FUNCION_COMPLET", "LLAVE_A FUNCION LLAVE_C",
+                1, "Error sintáctico {}: Falta el punto y coma al final de la función [#, %]");
+        // Hacemos que en las agrupaciones de errores nos muestre la línea/columna nuevamente
+        gramatica.initialLineColumn();
+	
+	// Mostramos en consola el ArrayList de errores
+        System.out.println(errores);
+````
+
+Al ejecutar lo anterior, nos mostrará lo siguiente en consola:
+````
+[Error sintáctico 1: Falta el punto y coma al final de la función [3, 16]]
+````
+Vemos entonces que ahora nos mostró la línea/columna final de la producción agrupada. 
 
 A continuación explicaremos como guardar nuestras agrupaciones en un ArrayList. Tomaremos como ejemplo los siguientes grupos de tokens:
 
