@@ -126,3 +126,202 @@ Clase para la manipulación de archivos de código. Las operaciones que se puede
 </td>
 </tr>
 </table>
+
+### ErrorLSSL
+Clase que sirve para almacenar un error ya sea Léxico, Sintáctico, Semántico o Lógico. Se guarda la siguiente información: el número de error, la descripción, la producción de tokens a almacenar, y un booleano que indica si desea mostrar la línea/columna inicial o final de la producción. Las funciones o métodos que contiene son los siguientes:
+<table>
+<tr>
+<th>Modificador y tipo</th>
+<th>Método</th>
+<th>Descripción</th>
+</tr>
+<tr>
+<td><code>int</code></td>
+<th><code><span>getColumn</span>()</code></th>
+<td>
+<div>Método para obtener la columna donde se encuentra el error.</div>
+</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<th><code><span>getLine</span>()</code></th>
+<td>
+<div>Método para obtener la línea donde se encuentra el error.</div>
+</td>
+</tr>
+</table>
+
+### Functions
+Clase creada para la ejecución de funciones que son de utilidad en un compilador estándar. Las funciones o métodos que contiene son los siguientes:
+<table>
+<tr>
+<th>Modificador y tipo</th>
+<th>Método</th>
+<th>Descripción</th>
+</tr>
+<tr>
+<td><code>static void</code></td>
+<th><code><span>addRowDataInTable</span>&#8203;(javax.swing.JTable&nbsp;table,
+                 java.lang.Object[]&nbsp;rowData)</code></th>
+<td>
+<div>Método para agregar un arreglo de objetos como renglón a una tabla</div>
+</td>
+</tr>
+<tr>
+<td><code>static java.lang.String</code></td>
+<th><code><span>centerWord</span>&#8203;(java.lang.String&nbsp;word,
+          java.lang.String&nbsp;charLeft,
+          java.lang.String&nbsp;charRight,
+          int&nbsp;quantity)</code></th>
+<td>
+<div>Método para centrar una cadena entre caracteres especificados a la
+ izquierda y derecha.</div>
+</td>
+</tr>
+<tr>
+<td><code>static void</code></td>
+<th><code><span>clearDataInTable</span>&#8203;(javax.swing.JTable&nbsp;table)</code></th>
+<td>
+<div>Método para eliminar todos los renglones de una tabla.</div>
+</td>
+</tr>
+<tr>
+<td><code>static void</code></td>
+<th><code><span>colorTextPane</span>&#8203;(java.util.ArrayList&lt;TextColor&gt;&nbsp;textsColor,
+             javax.swing.JTextPane&nbsp;jtpCode,
+             java.awt.Color&nbsp;originalColor)</code></th>
+<td>
+<div>Función que colorea los caracteres de un JTextPane que estén dentro de un
+ rango de un determinado color</div>
+</td>
+</tr>
+<tr>
+<td><code>static java.lang.String</code></td>
+<th><code><span>formatString</span>&#8203;(java.lang.String&nbsp;str,
+            java.lang.String&nbsp;format,
+            java.lang.String&nbsp;replace)</code></th>
+<td>
+<div>Método que realiza el remplazo de una cadena por otra cadena, con la
+ condición de que no esté precedida de el caracter de escape '\'</div>
+</td>
+</tr>
+<tr>
+<td><code>static void</code></td>
+<th><code><span>insertAsteriskInName</span>&#8203;(javax.swing.JFrame&nbsp;jFrame,
+                    javax.swing.text.JTextComponent&nbsp;jTextComponent)</code></th>
+<td>
+<div>Método para colocar el asterisco al final del título del JFrame durante
+ la edición de un archivo.</div>
+</td>
+</tr>
+<tr>
+<td><code>static void</code></td>
+<th><code><span>insertAsteriskInName</span>&#8203;(javax.swing.JFrame&nbsp;jFrame,
+                    javax.swing.text.JTextComponent&nbsp;jTextComponent,
+                    java.lang.Runnable&nbsp;function)</code></th>
+<td>
+<div>Método para colocar el asterisco al final del título del JFrame durante
+ la edición de un archivo.</div>
+</td>
+</tr>
+<tr>
+<td><code>static boolean</code></td>
+<th><code><span>isDigit</span>&#8203;(java.lang.String&nbsp;digit)</code></th>
+<td>
+<div>Método para saber si una cadena es un dígito.</div>
+</td>
+</tr>
+<tr>
+<td><code>static boolean</code></td>
+<th><code><span>isLetter</span>&#8203;(java.lang.String&nbsp;letter)</code></th>
+<td>
+<div>Método para saber si una cadena es una letra.</div>
+</td>
+</tr>
+<tr>
+<td><code>static boolean</code></td>
+<th><code><span>isNumber</span>&#8203;(java.lang.String&nbsp;number)</code></th>
+<td>
+<div>Método para saber si una cadena es un número.</div>
+</td>
+</tr>
+<tr>
+<td><code>static boolean</code></td>
+<th><code><span>isSpace</span>&#8203;(java.lang.String&nbsp;space)</code></th>
+<td>
+<div>Método para saber si una cadena es un espacio vacío.</div>
+</td>
+</tr>
+<tr>
+<td><code>static boolean</code></td>
+<th><code><span>isSpaceOrSaltLine</span>&#8203;(java.lang.String&nbsp;space)</code></th>
+<td>
+<div>Método para saber si una cadena es un espacio vacío o salto de línea.</div>
+</td>
+</tr>
+<tr>
+<td><code>static boolean</code></td>
+<th><code><span>isWord</span>&#8203;(java.lang.String&nbsp;word)</code></th>
+<td>
+<div>Método para saber si una cadena es una palabra.</div>
+</td>
+</tr>
+<tr>
+<td><code>static void</code></td>
+<th><code><span>setAutocompleterJTextComponent</span>&#8203;(java.lang.String[]&nbsp;words,
+                              javax.swing.text.JTextComponent&nbsp;jTextComponent)</code></th>
+<td>
+<div>Función para implementar el método de autocompletado de código en un
+ JTextComponent, mostrando un JPopupMenu que contendrá todas la palabras
+ coincidentes con lo que se ha escrito.</div>
+</td>
+</tr>
+<tr>
+<td><code>static void</code></td>
+<th><code><span>setAutocompleterJTextComponent</span>&#8203;(java.lang.String[]&nbsp;words,
+                              javax.swing.text.JTextComponent&nbsp;jTextComponent,
+                              java.lang.Runnable&nbsp;function)</code></th>
+<td>
+<div>Función para implementar el método de autocompletado de código en un
+ JTextComponent, mostrando un JPopupMenu que contendrá todas la palabras
+ coincidentes con lo que se ha escrito.</div>
+</td>
+</tr>
+<tr>
+<td><code>static void</code></td>
+<th><code><span>setLineNumberOnJTextComponent</span>&#8203;(javax.swing.text.JTextComponent&nbsp;jTextComponent)</code></th>
+<td>
+<div>Método que muestra los números de línea en un JTextComponent.</div>
+</td>
+</tr>
+<tr>
+<td><code>static void</code></td>
+<th><code><span>setLineNumberOnJTextComponent</span>&#8203;(javax.swing.text.JTextComponent&nbsp;jTextComponent,
+                             int&nbsp;minimumDisplayDigits,
+                             java.awt.Color&nbsp;color)</code></th>
+<td>
+<div>Método que muestra los números de línea en un JTextComponent.</div>
+</td>
+</tr>
+<tr>
+<td><code>static void</code></td>
+<th><code><span>sortErrorsByLineAndColumn</span>&#8203;(java.util.ArrayList&lt;ErrorLSSL&gt;&nbsp;errors)</code></th>
+<td>
+<div>Método para ordenar un ArrayList de errores por número de línea y
+ columna.</div>
+</td>
+</tr>
+<tr>
+<td><code>static CodeBlock</code></td>
+<th><code><span>splitCodeInCodeBlocks</span>&#8203;(java.util.ArrayList&lt;<a href="Token.html" title="class in compilerTools">Token</a>&gt;&nbsp;tokens,
+                     java.lang.String&nbsp;blockInitiator,
+                     java.lang.String&nbsp;blockTerminator,
+                     java.lang.String&nbsp;sentenceTerminator)</code></th>
+<td>
+<div>Función que divide el bloque de código principal en bloques y subbloques
+ de código, tomando en cuenta tanto el lexema o bloque iniciador de
+ código, el lexema o bloque terminador de código, y el lexema o bloque
+ terminador de sentencia.</div>
+</td>
+</tr>
+</table>
