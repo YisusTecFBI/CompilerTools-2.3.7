@@ -1904,7 +1904,7 @@ Token(}, LLAVE_C, 7, 65),
 Token(;, PUNTO_COMA, 8, 13)])
 ````
 
-¿Donde quedó el error? El error fue almacenado en el ArrayList de errores que pasamos como parámetro. A continuación, imprimeremos e en consola del ArrayList de errores:
+¿Donde quedó el error? El error fue almacenado en el ArrayList de errores que pasamos como parámetro. A continuación, imprimeremos en consola del ArrayList de errores:
 
 ````java
         // Mostramos en consola el ArrayList de errores
@@ -1915,6 +1915,25 @@ Lo anterior muestra lo siguiente en consola:
 
 ````
 [Error sintáctico 1: Falta el punto y coma al final de la función [1, 23]]
+````
+
+También podemos eliminar aquellas producciones o grupos de tokens que desemos eliminar. Mandaremos a llamar la función delete, la cual nos permite eliminar una producción ya sea de forma silenciosa o bien, agregando un mensaje de error. Supongamos que deseamos eliminar el punto y coma, argumentando que es un caracter inválido en nuestro lenguaje:
+
+````java
+	// Eliminamos cualquier producción con el nombre de PUNTO_COMA
+        gramatica.delete("PUNTO_COMA", 2, "Error sintáctico {}: Caracter inválido [#, %]");
+        // Mostramos en consola el ArrayList de errores
+        System.out.println(errores);
+````
+
+Lo anterior nos mostrará lo siguiente en consola:
+
+````
+....................................................................................................
+**** Se realizaron 1 eliminaciones de producciones llamadas "PUNTO_COMA" ****
+La cantidad de producciones se redujo de 7 a 6
+
+[Error sintáctico 2: Caracter inválido [8, 13]]
 ````
 
 ### Autor y Licencia
