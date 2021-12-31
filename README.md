@@ -2070,7 +2070,7 @@ Imaginemos que cambiamos la estructura de la agrupación. En vez de que el punto
         // Agrupación con sintaxis correcta
         gramatica.group("FUNCION_COMPLET", "LLAVE_A PUNTO_COMA FUNCION PUNTO_COMA LLAVE_C");
 ````
-Ahora bien, sabemos que todas las producciones (LLAVE_A, LLAVE_C, FUNCION, PUNTO_COMA) son de un solo token. Pero, ¿y si fueran de más de 100000 tokens cada una? EL mostrar el error inicial o final no es suficiente, sino que tenemos que hacer eferencia a un componente. Si queremos indicar el componente, añadimos un parámetro más llamado indexComponent. El índice del componente del que haremos referencia será el de FUNCION. El siguiente código hará la agrupación del error en caso de que falte un PUNTO_COMA antes de FUNCION:
+Ahora bien, sabemos que todas las producciones (LLAVE_A, LLAVE_C, FUNCION, PUNTO_COMA) son de un solo token. Pero, ¿y si fueran de más de 100000 tokens cada una? EL mostrar el error inicial o final no es suficiente, sino que tenemos que hacer referencia a un componente. Si queremos indicar el componente, añadimos un parámetro más llamado indexComponent. El índice del componente del que haremos referencia será el de FUNCION. El siguiente código hará la agrupación del error en caso de que falte un PUNTO_COMA antes de FUNCION:
 
 ````java
         // Hacemos que en las agrupaciones de errores nos muestre la línea/columna inicial
