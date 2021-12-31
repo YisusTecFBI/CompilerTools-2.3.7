@@ -490,7 +490,7 @@ Clase creada para la ejecución de funciones que son de utilidad en un compilado
         <li><a id="method.detail">
                 <!--   -->
             </a>
-            <h3>Method Detail</h3>
+            <h3>Detalles de métodos</h3>
             <a id="clearDataInTable(javax.swing.JTable)">
                 <!--   -->
             </a>
@@ -879,7 +879,11 @@ Clase que sirve para realizar la agrupación de Tokens en un ArrayList de Produc
 
 <section role="region">
     <ul>
-        <li><a
+        <li><a id="method.detail">
+                <!--   -->
+            </a>
+            <h3>Detalles de métodos</h3>
+         <a
                 id="group(java.lang.String,java.lang.String,java.lang.String[],boolean,int,java.lang.String,int,java.util.ArrayList)">
                 <!--   -->
             </a>
