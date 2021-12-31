@@ -192,7 +192,7 @@ Clase creada para la ejecución de funciones que son de utilidad en un compilado
              java.awt.Color&nbsp;originalColor)</code></th>
 <td>
 <div>Función que colorea los caracteres de un JTextPane que estén dentro de un
- rango de un determinado color</div>
+ rango de un determinado color.</div>
 </td>
 </tr>
 <tr>
@@ -202,7 +202,7 @@ Clase creada para la ejecución de funciones que son de utilidad en un compilado
             java.lang.String&nbsp;replace)</code></th>
 <td>
 <div>Método que realiza el remplazo de una cadena por otra cadena, con la
- condición de que no esté precedida de el caracter de escape '\'</div>
+ condición de que no esté precedida de el caracter de escape '\'.</div>
 </td>
 </tr>
 <tr>
@@ -313,7 +313,7 @@ Clase creada para la ejecución de funciones que son de utilidad en un compilado
 </tr>
 <tr>
 <td><code>static CodeBlock</code></td>
-<th><code><span>splitCodeInCodeBlocks</span>&#8203;(java.util.ArrayList&lt;<a href="Token.html" title="class in compilerTools">Token</a>&gt;&nbsp;tokens,
+<th><code><span>splitCodeInCodeBlocks</span>&#8203;(java.util.ArrayList&lt;Token&gt;&nbsp;tokens,
                      java.lang.String&nbsp;blockInitiator,
                      java.lang.String&nbsp;blockTerminator,
                      java.lang.String&nbsp;sentenceTerminator)</code></th>
