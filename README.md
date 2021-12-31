@@ -273,7 +273,7 @@ Clase creada para la ejecución de funciones que son de utilidad en un compilado
 <td>
 <div>Función para implementar el método de autocompletado de código en un
  JTextComponent, mostrando un JPopupMenu que contendrá todas la palabras
- coincidentes con lo que se ha escrito.</div>
+ coincidentes con lo que se ha escrito. Dicho JPopupMenu se activará al presionar CTRL + SPACE.</div>
 </td>
 </tr>
 <tr>
@@ -284,7 +284,7 @@ Clase creada para la ejecución de funciones que son de utilidad en un compilado
 <td>
 <div>Función para implementar el método de autocompletado de código en un
  JTextComponent, mostrando un JPopupMenu que contendrá todas la palabras
- coincidentes con lo que se ha escrito.</div>
+ coincidentes con lo que se ha escrito. Dicho JPopupMenu se activará al presionar CTRL + SPACE.</div>
 </td>
 </tr>
 <tr>
