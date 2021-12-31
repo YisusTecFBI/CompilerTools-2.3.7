@@ -164,6 +164,21 @@ Las funciones o métodos que contiene son los siguientes:
                     </dl>
                 </li>
             </ul>
+	    <a id="isMarker(java.lang.String)">
+    		<!--   -->
+	     </a>
+	    <ul>
+    		<li>
+        	    <h4>isMarker</h4>
+        	    <dl>
+            		<dt><span>Parameters:</span></dt>
+            		<dd><code>marker</code> - El marcador que se desea analizar</dd>
+            		<dt><span>Returns:</span></dt>
+            		<dd>boolean Verdadero si la cadena es un marcador, falso en caso
+                	contrario</dd>
+        	    </dl>
+    		</li>
+	    </ul>
             <a id="getPositionOfBothMarkers(java.util.ArrayList,java.lang.String)">
                 <!--   -->
             </a>
