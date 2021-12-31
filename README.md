@@ -296,6 +296,40 @@ Clase que sirve para almacenar un error ya sea Léxico, Sintáctico, Semántico 
 </tr>
 </table>
 
+<section role="region">
+    <ul>
+        <li><a id="method.detail">
+                <!--   -->
+            </a>
+            <h3>Detalles de métodos</h3>
+            <a id="getLine()">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>getLine</h4>
+                    <dl>
+                        <dt><span class="returnLabel">Retorna:</span></dt>
+                        <dd>int Número que representa la línea</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="getColumn()">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>getColumn</h4>
+                    <dl>
+                        <dt><span class="returnLabel">Retorna:</span></dt>
+                        <dd>int Número que representa la columna</dd>
+                    </dl>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
 ### Functions
 Clase creada para la ejecución de funciones que son de utilidad en un compilador estándar. Las funciones o métodos que contiene son los siguientes:
 <table>
