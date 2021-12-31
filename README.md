@@ -65,6 +65,13 @@ Las funciones o métodos que contiene son los siguientes:
 </td>
 </tr>
 <tr>
+<td><code>static boolean</code></td>
+<th><code><span>isMarker</span>&#8203;(java.lang.String&nbsp;marker)</code></th>
+<td>
+<div>Función para saber si una cadena es un marcador.</div>
+</td>
+</tr>
+<tr>
 <td><code>void</code></td>
 <th><code><span>setCode</span>&#8203;(java.lang.String&nbsp;code)</code></th>
 <td>
