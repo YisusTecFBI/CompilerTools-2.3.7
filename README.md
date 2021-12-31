@@ -1563,5 +1563,56 @@ Clase para almacenar los atributos de un token (lexema, componente léxico, lín
     </ul>
 </section>
 
+### Ejemplo de uso
+Procederemos a crear varios tokens y agregarlos a un ArrayList de tipo Token:
+
+````java
+        // Declaramos los tokens, pasando como parámetro el lexema, componente léxico, línea y columna
+        Token tk1 = new Token("(", "PARENTESIS_A", 3, 41);
+        Token tk2 = new Token(")", "PARENTESIS_C", 5, 13);
+        Token tk3 = new Token("color", "TIPO_DATO", 9, 36);
+        // Agregamos los tokens a un ArrayList de tipo Token
+        ArrayList<Token> tokens = new ArrayList<>();
+        tokens.add(tk1);
+        tokens.add(tk2);
+        tokens.add(tk3);
+````
+
+Declararemos un ArrayList de tipo ErrorLSSL para guardar los errores resultantes de las agrupaciones de gramáticas que haremos más adelante:
+
+
+````java
+        // ArrayList de ErrorLSSL
+        ArrayList<ErrorLSSL> errores = new ArrayList<>();
+````
+
+A continuación, empezaremos a hacer las agrupaciones de nuestras gramáticas. Crearemos un objeto de tipo Grammar:
+
+````java
+        // Cremos el objeto de tipo Grammar, pasando como parámetro el ArrayList de Tokens y el ArrayList de errores
+        Grammar gramatica = new Grammar(tokens, errores);
+        // Mostramos las gramáticas o conjunto de producciones creadas
+        gramatica.show();
+````
+
+Lo anterior nos generará una salida en consola:
+
+````
+**** Mostrando gramáticas ****
+
+....................................................................................................
+Produccion(PARENTESIS_A, 3, 41, 3, 41, [
+Token((, PARENTESIS_A, 3, 41)])
+
+....................................................................................................
+Produccion(PARENTESIS_C, 5, 13, 5, 13, [
+Token(), PARENTESIS_C, 5, 13)])
+
+....................................................................................................
+Produccion(TIPO_DATO, 9, 36, 9, 36, [
+Token(color, TIPO_DATO, 9, 36)])
+````
+
+Como podrá observar, nos generó 3 producciones, estas producciones a su vez contienen un solo Token. El nombre de la producción es el mismo que el nombre del token que almacena. El primer parámetro es el nombre de la producción, la línea inicial, columna inicial, línea final, columna final y el arreglo de tokens. En este caso, tanto la línea/columna inicial y final son las mismas ya que solo contiene un solo Token. En caso de haber más tokens en la Producción, la línea/columna inicial de la Producción será igual a la línea/columna del primer Token; por lo tanto, la línea/columna final será igual a la línea/columna final del último Token.
 ### Autor y Licencia
 Copyright 2021-2022 by Yisus Efebei and M45t3r L3g10n
