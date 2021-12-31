@@ -81,7 +81,7 @@ Las funciones o métodos que contiene son los siguientes:
 </tr>
 </table>
 
-<section>
+<section role="region">
     <ul>
         <li><a>
             </a>
@@ -222,6 +222,55 @@ Clase para la manipulación de archivos de código. Las operaciones que se puede
 </td>
 </tr>
 </table>
+
+<section role="region">
+    <ul>
+        <li><a id="method.detail">
+                <!--   -->
+            </a>
+            <h3>Detalles de métodos</h3>
+            <a id="Open()">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>Open</h4>
+                    <dl>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>boolean Retorna verdadero si abrió el archivo exitosamente, falso
+                            en caso contrario</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="Save()">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>Save</h4>
+                    <dl>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>boolean Retorna verdadero si el archivo fue guardado
+                            exitosamente, falso en caso contrario</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="SaveAs()">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>SaveAs</h4>
+                    <dl>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>boolean Retorna verdadero si el archivo fue guardado
+                            exitosamente, falso en caso contrario</dd>
+                    </dl>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
 
 ### ErrorLSSL
 Clase que sirve para almacenar un error ya sea Léxico, Sintáctico, Semántico o Lógico. Se guarda la siguiente información: el número de error, la descripción, la producción de tokens a almacenar, y un booleano que indica si desea mostrar la línea/columna inicial o final de la producción. Las funciones o métodos que contiene son los siguientes:
