@@ -620,3 +620,41 @@ Clase para el almacenamiento del índice de inicio, tamaño y color de una caden
 </td>
 </tr>
 </table>
+
+### Token
+Clase para almacenar los atributos de un token (lexema, componente léxico, línea y columna). Las funciones o métodos que contiene son los siguientes:
+<table>
+<tr>
+<th>Modificador y tipo</th>
+<th>Método</th>
+<th>Descripción</th>
+</tr>
+<tr>
+<td><code>int</code></td>
+<th><code><span>getColumn</span>()</code></th>
+<td>
+<div>Método para obtener el número de columna del token.</div>
+</td>
+</tr>
+<tr>
+<td><code>java.lang.String</code></td>
+<th><code><span>getLexeme</span>()</code></th>
+<td>
+<div>Función para obtener el lexema del token.</div>
+</td>
+</tr>
+<tr>
+<td ><code>java.lang.String</code></td>
+<th><code><span>getLexicalComp</span>()</code></th>
+<td>
+<div>Función para obtener el componente léxico del token.</div>
+</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<th><code><span>getLine</span>()</code></th>
+<td>
+<div>Función para obtener el número de línea del token.</div>
+</td>
+</tr>
+</table>
