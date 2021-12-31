@@ -1732,7 +1732,7 @@ Lo único que tenemos que hacer, es mandar a llamar el siguiente método para qu
 
 Lo anterior no generará ninguna salida en consola.
 
-Para los siguientes ejemplos, introduciremos nuevos tokens:
+Para el siguiente ejemplo, introduciremos nuevos tokens:
 ````
         // Declaramos los tokens
         Token tk1 = new Token("FUNCION", "FUNCION", 1, 94);
@@ -1813,6 +1813,108 @@ Token(FUNCION, FUNCION, 7, 65),
 Token(}, LLAVE_C, 8, 15),
 Token({, LLAVE_C, 9, 43),
 Token(}, LLAVE_C, 10, 13)])
+````
+A continuación describiremos la manera de como generar errores sintácticos. Un error sintáctico se genera al encontrase una gramática que no esté recnocida por el lenguaje. Supongamos que deseamos agrupar una llave que abre, seguido de una funcion, una llave que cierra y que termina con punto y coma. Para ello, nuevamente introduciremos nuevos tokens:
+
+````java
+        // Declaramos los tokens
+        Token tk1 = new Token("{", "LLAVE_A", 1, 23);
+        Token tk2 = new Token("FUNCION", "FUNCION", 2, 12);
+        Token tk3 = new Token("}", "LLAVE_C", 3, 16);
+        Token tk4 = new Token("{", "LLAVE_A", 5, 22);
+        Token tk5 = new Token("FUNCION", "FUNCION", 6, 23);
+        Token tk6 = new Token("}", "LLAVE_C", 7, 65);
+        Token tk7 = new Token(";", "PUNTO_COMA", 8, 13);
+        // Agregamos los tokens a un ArrayList de tipo Token
+        ArrayList<Token> tokens = new ArrayList<>();
+        tokens.add(tk1);
+        tokens.add(tk2);
+        tokens.add(tk3);
+        tokens.add(tk4);
+        tokens.add(tk5);
+        tokens.add(tk6);
+        tokens.add(tk7);
+	
+	// ArrayList de ErrorLSSL
+        ArrayList<ErrorLSSL> errores = new ArrayList<>();
+
+        // Cremos el objeto de tipo Grammar, pasando como parámetro el ArrayList de Tokens y el ArrayList de errores
+        Grammar gramatica = new Grammar(tokens, errores);
+````
+
+A continuación, haremos la agrupación anteriormente descrita:
+
+````java
+        gramatica.group("FUNCION_COMPLET", "LLAVE_A FUNCION LLAVE_C PUNTO_COMA");
+````
+
+Al mostrar las gramáticas, nos mostrará lo siguiente en consola:
+
+````
+**** Mostrando gramáticas ****
+
+....................................................................................................
+Produccion(LLAVE_A, 1, 23, 1, 23, [
+Token({, LLAVE_A, 1, 23)])
+
+....................................................................................................
+Produccion(FUNCION, 2, 12, 2, 12, [
+Token(FUNCION, FUNCION, 2, 12)])
+
+....................................................................................................
+Produccion(LLAVE_C, 3, 16, 3, 16, [
+Token(}, LLAVE_C, 3, 16)])
+
+....................................................................................................
+Produccion(FUNCION_COMPLET, 5, 22, 8, 13, [
+Token({, LLAVE_A, 5, 22),
+Token(FUNCION, FUNCION, 6, 23),
+Token(}, LLAVE_C, 7, 65),
+Token(;, PUNTO_COMA, 8, 13)])
+````
+
+Podemos observar que solo un grupo de producciones cumplieron con la expresión regular. A los grupos de produccciones o tokens anteriores solamente les faltó un punto y coma al final. Como eso es básicamente un error sintáctico, agruparemos dicha expresión y guardaremos el error en el ArrayList de errores. Entonces, después de nuestra primera agrupación de sintaxis correcta, haremos una segunda agrupación para la sintaxis incorrecta:
+
+````java
+        // Agrupación con sintaxis correcta
+        gramatica.group("FUNCION_COMPLET", "LLAVE_A FUNCION LLAVE_C PUNTO_COMA");
+
+        /* Agrupación con sintaxis incorrecta, pasando como parámetro el nombre de la nueva producción,
+           la expresión regular, el número de error y el mensaje de error 
+         */
+        gramatica.group("FUNCION_COMPLET", "LLAVE_A FUNCION LLAVE_C",
+                1, "Error sintáctico {}: Falta el punto y coma al final de la función [#, %]");
+````
+
+Lo anterior realizará las siguientes agrupaciones:
+````
+**** Mostrando gramáticas ****
+
+....................................................................................................
+Produccion(FUNCION_COMPLET, 1, 23, 3, 16, [
+Token({, LLAVE_A, 1, 23),
+Token(FUNCION, FUNCION, 2, 12),
+Token(}, LLAVE_C, 3, 16)])
+
+....................................................................................................
+Produccion(FUNCION_COMPLET, 5, 22, 8, 13, [
+Token({, LLAVE_A, 5, 22),
+Token(FUNCION, FUNCION, 6, 23),
+Token(}, LLAVE_C, 7, 65),
+Token(;, PUNTO_COMA, 8, 13)])
+````
+
+¿Donde quedó el error? El error fue almacenado en el ArrayList de errores que pasamos como parámetro. A continuación, imprimeremos e en consola del ArrayList de errores:
+
+````java
+        // Mostramos en consola el ArrayList de errores
+        System.out.println(errores);
+````
+
+Lo anterior muestra lo siguiente en consola:
+
+````
+[Error sintáctico 1: Falta el punto y coma al final de la función [1, 23]]
 ````
 
 ### Autor y Licencia
