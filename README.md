@@ -1510,7 +1510,7 @@ Clase para almacenar los atributos de un token (lexema, componente léxico, lín
         <li><a id="method.detail">
                 <!--   -->
             </a>
-            <h3>Method Detail</h3>
+            <h3>Detalles de métodos</h3>
             <a id="getLexeme()">
                 <!--   -->
             </a>
