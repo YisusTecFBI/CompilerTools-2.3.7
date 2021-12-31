@@ -37,7 +37,8 @@ Las funciones o métodos que contiene son los siguientes:
 <th><code><span>getBlocksOfCodeInOrderOfExec</span>()</code></th>
 <td>
 <div>Función que retorna un ArrayList de String que representa cada bloque de
- código a ejecutar.</div>
+ código a ejecutar. En dicho ArrayList se especifica un marcador de inicio y fin de cada bloque de código. El marcador empieza con un caracter ~, seguido de un UUID único y termina con otro caracter ~.
+</div>
 </td>
 </tr>
 <tr>
