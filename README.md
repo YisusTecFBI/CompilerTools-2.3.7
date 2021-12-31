@@ -1733,7 +1733,7 @@ Lo único que tenemos que hacer, es mandar a llamar el siguiente método para qu
 Lo anterior no generará ninguna salida en consola.
 
 Para el siguiente ejemplo, introduciremos nuevos tokens:
-````
+````java
         // Declaramos los tokens
         Token tk1 = new Token("FUNCION", "FUNCION", 1, 94);
         Token tk2 = new Token("FUNCION", "FUNCION", 2, 56);
@@ -1776,7 +1776,7 @@ Supongamos que deseamos meter los siguientes tokens en una sola agrupación:
 ````
 Tenemos diferentes maneras de hacerlo. La primera es con una expresión regular:
 
-````
+````java
         gramatica.group("FUNCION","(LLAVE_A)+ FUNCION (LLAVE_C)+");
 ````
 
