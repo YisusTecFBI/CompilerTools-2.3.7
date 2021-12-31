@@ -1743,7 +1743,7 @@ Para el siguiente ejemplo, introduciremos nuevos tokens:
         Token tk6 = new Token("{", "LLAVE_A", 6, 45);
         Token tk7 = new Token("FUNCION", "FUNCION", 7, 65);
         Token tk8 = new Token("}", "LLAVE_C", 8, 15);
-        Token tk9 = new Token("{", "LLAVE_C", 9, 43);
+        Token tk9 = new Token("}", "LLAVE_C", 9, 43);
         Token tk10 = new Token("}", "LLAVE_C", 10, 13);
         // Agregamos los tokens a un ArrayList de tipo Token
         ArrayList<Token> tokens = new ArrayList<>();
@@ -1771,7 +1771,7 @@ Supongamos que deseamos meter los siguientes tokens en una sola agrupación:
         Token tk6 = new Token("{", "LLAVE_A", 6, 45);
         Token tk7 = new Token("FUNCION", "FUNCION", 7, 65);
         Token tk8 = new Token("}", "LLAVE_C", 8, 15);
-        Token tk9 = new Token("{", "LLAVE_C", 9, 43);
+        Token tk9 = new Token("}", "LLAVE_C", 9, 43);
         Token tk10 = new Token("}", "LLAVE_C", 10, 13);
 ````
 Tenemos diferentes maneras de hacerlo. La primera es con una expresión regular:
@@ -1811,10 +1811,98 @@ Token({, LLAVE_A, 5, 76),
 Token({, LLAVE_A, 6, 45),
 Token(FUNCION, FUNCION, 7, 65),
 Token(}, LLAVE_C, 8, 15),
+Token(}, LLAVE_C, 9, 43),
+Token(}, LLAVE_C, 10, 13)])
+````
+
+Explicaremos de que manera podemos manipular las agrupaciones. Al observar una expresión regular, nosotros por intuición sabemos que expresión regular genera una sola cadena, por lo tanto, solo podrá cumplirse con una cadena. Sin embargo, la clase Grammar eso no lo sabe. Podemos hacer que haga una agrupación ya sea solamente en la primera ocurrencia o no. Por defecto no lo hace, pero nosotros podemos especificarlo en el método group. Por ejemplo, supongamos que deseamos agrupar una llave que abre, seguido de una función y que termina con una o más llaves que cierran. La agrupación se hace de la siguiente manera:
+
+````java
+        gramatica.group("FUNCION","LLAVE_A FUNCION (LLAVE_C)+");
+````
+
+Lo anterior mostrará lo siguiente en consola:
+````
+**** Mostrando gramáticas ****
+
+....................................................................................................
+Produccion(FUNCION, 1, 94, 1, 94, [
+Token(FUNCION, FUNCION, 1, 94)])
+
+....................................................................................................
+Produccion(FUNCION, 2, 56, 2, 56, [
+Token(FUNCION, FUNCION, 2, 56)])
+
+....................................................................................................
+Produccion(FUNCION, 3, 65, 3, 65, [
+Token(FUNCION, FUNCION, 3, 65)])
+
+....................................................................................................
+Produccion(LLAVE_A, 4, 24, 4, 24, [
+Token({, LLAVE_A, 4, 24)])
+
+....................................................................................................
+Produccion(LLAVE_A, 5, 76, 5, 76, [
+Token({, LLAVE_A, 5, 76)])
+
+....................................................................................................
+Produccion(FUNCION, 6, 45, 10, 13, [
+Token({, LLAVE_A, 6, 45),
+Token(FUNCION, FUNCION, 7, 65),
+Token(}, LLAVE_C, 8, 15),
 Token({, LLAVE_C, 9, 43),
 Token(}, LLAVE_C, 10, 13)])
 ````
-A continuación describiremos la manera de como generar errores sintácticos. Un error sintáctico se genera al encontrase una gramática que no esté recnocida por el lenguaje. Supongamos que deseamos agrupar una llave que abre, seguido de una funcion, una llave que cierra y que termina con punto y coma. Para ello, nuevamente introduciremos nuevos tokens:
+
+Ahora bien, supongamos que deseamos que la agrupación la haga hasta la primera ocurrencia. Mandaremos un parametro adicional booleano llamado stopAtFirstOcurrence en true:
+
+````java
+        gramatica.group("FUNCION", "LLAVE_A FUNCION (LLAVE_C)+", true);
+````
+
+De esa manera, tendremo lo siguiente en consola:
+
+````
+**** Mostrando gramáticas ****
+
+....................................................................................................
+Produccion(FUNCION, 1, 94, 1, 94, [
+Token(FUNCION, FUNCION, 1, 94)])
+
+....................................................................................................
+Produccion(FUNCION, 2, 56, 2, 56, [
+Token(FUNCION, FUNCION, 2, 56)])
+
+....................................................................................................
+Produccion(FUNCION, 3, 65, 3, 65, [
+Token(FUNCION, FUNCION, 3, 65)])
+
+....................................................................................................
+Produccion(LLAVE_A, 4, 24, 4, 24, [
+Token({, LLAVE_A, 4, 24)])
+
+....................................................................................................
+Produccion(LLAVE_A, 5, 76, 5, 76, [
+Token({, LLAVE_A, 5, 76)])
+
+....................................................................................................
+Produccion(FUNCION, 6, 45, 8, 15, [
+Token({, LLAVE_A, 6, 45),
+Token(FUNCION, FUNCION, 7, 65),
+Token(}, LLAVE_C, 8, 15)])
+
+....................................................................................................
+Produccion(LLAVE_C, 9, 43, 9, 43, [
+Token({, LLAVE_C, 9, 43)])
+
+....................................................................................................
+Produccion(LLAVE_C, 10, 13, 10, 13, [
+Token(}, LLAVE_C, 10, 13)])
+````
+
+Como puede observar, solamente agrupó una llave que cierra, ya que en si la agrupación cumple con la expresión regular, pero se detuvo en la primera ocurrencia. Esta funcionalidad solamente es útil si desea ahorrar tiempo de procesamiento en aquellas agrupaciones que solamente se cumplirán con una sola cadena.
+
+A continuación describiremos la manera de como generar errores sintácticos. Un error sintáctico se genera al encontrase una gramática que no esté reconocida por el lenguaje. Supongamos que deseamos agrupar una llave que abre, seguido de una funcion, una llave que cierra y que termina con punto y coma. Para ello, nuevamente introduciremos nuevos tokens:
 
 ````java
         // Declaramos los tokens
