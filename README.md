@@ -534,21 +534,6 @@ Clase creada para la ejecución de funciones que son de utilidad en un compilado
                     </dl>
                 </li>
             </ul>
-            <a id="insertAsteriskInName(javax.swing.JFrame,javax.swing.text.JTextComponent)">
-                <!--   -->
-            </a>
-            <ul>
-                <li>
-                    <h4>insertAsteriskInName</h4>
-                    <dl>
-                        <dt><span>Parámetros:</span></dt>
-                        <dd><code>jFrame</code> - JFrame del cual se desea modificar el título durante una
-                            edición</dd>
-                        <dd><code>jTextComponent</code> - JTextComponent que se tomará como referencia de
-                            edición</dd>
-                    </dl>
-                </li>
-            </ul>
             <a id="centerWord(java.lang.String,java.lang.String,java.lang.String,int)">
                 <!--   -->
             </a>
