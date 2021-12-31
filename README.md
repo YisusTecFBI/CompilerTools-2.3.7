@@ -450,3 +450,142 @@ Clase que sirve para realizar la agrupación de Tokens en un ArrayList de Produc
 </td>
 </tr>
 </table>
+
+### Production
+Clase realizada para el almacenamiento de un grupo de tokens, especificando el nombre de la agrupación y la línea/columna inicial y final de la misma. Las funciones o métodos que contiene son los siguientes:
+<table>
+<tr>
+<th>Modificador y tipo</th>
+<th>Método</th>
+<th>Descripción</th>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span>addTokens</span>&#8203;(Production&nbsp;prod)</code></th>
+<td>
+<div>Método para agregar los tokens de otra producción.</div>
+</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<th><code><span>getColumn</span>()</code></th>
+<td>
+<div>Método para obtener la columna inicial de la producción.</div>
+</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<th><code><span>getFinalColumn</span>()</code></th>
+<td>
+<div>Método para obtener la columna final de la producción.</div>
+</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<th><code><span>getFinalLine</span>()</code></th>
+<td>
+<div>Método para obtener la línea final de la producción.</div>
+</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<th><code><span>getLine</span>()</code></th>
+<td>
+<div>Método para obtener la línea inicial de la producción.</div>
+</td>
+</tr>
+<tr>
+<td><code>java.lang.String</code></td>
+<th><code><span>getName</span>()</code></th>
+<td>
+<div>Método para obtener el nombre de la producción.</div>
+</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<th><code><span>getSizeTokens</span>()</code></th>
+<td>
+<div>Retorna la cantidad de tokens que almacena la producción.</div>
+</td>
+</tr>
+<tr>
+<td><code>java.util.ArrayList&lt;Token&gt;</code></td>
+<th><code><span>getTokens</span>()</code></th>
+<td>
+<div>Método para obtener el ArrayList de tokens de la producción.</div>
+</td>
+</tr>
+<tr>
+<td><code>java.lang.String</code></td>
+<th><code><span>lexemeRank</span>&#8203;(int&nbsp;i)</code></th>
+<td>
+<div>Método para obtener el lexema de un determinado token en la posición i
+ (acepta índices negativos).</div>
+</td>
+</tr>
+<tr>
+<td><code>java.lang.String</code></td>
+<th><code><span>lexemeRank</span>&#8203;(int&nbsp;i,
+          int&nbsp;j)</code></th>
+<td>
+<div>Retorna los lexemas concatenados de los tokens que estén entre la
+ posición i y j (acepta índices negativos).</div>
+</td>
+</tr>
+<tr>
+<td><code>java.lang.String</code></td>
+<th><code><span>lexicalCompRank</span>&#8203;(int&nbsp;i)</code></th>
+<td>
+<div>Método para obtener el componente léxico de un determinado token en la
+ posición i (acepta índices negativos).</div>
+</td>
+</tr>
+<tr id="i11">
+<td><code>java.lang.String</code></td>
+<th><code><span>lexicalCompRank</span>&#8203;(int&nbsp;i,
+               int&nbsp;j)</code></th>
+<td>
+<div>Retorna los componentes léxicos concatenados de los tokens que estén
+ entre la posición i y j (acepta índices negativos).</div>
+</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<th><code><span><a>nameEqualTo</a></span>&#8203;(java.lang.String&nbsp;name)</code></th>
+<td>
+<div>Método para saber si el nombre de la producción es igual a otra cadena.</div>
+</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<th><code><span><a>nameEqualTo</a></span>&#8203;(java.lang.String[]&nbsp;names)</code></th>
+<td>
+<div>Método para saber si el nombre de la producción es igual a alguna de las
+ cadenas dentro del arreglo.</div>
+</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span>setName</span>&#8203;(java.lang.String&nbsp;name)</code></th>
+<td>
+<div>Método para cambiar el nombre de la producción.</div>
+</td>
+</tr>
+<tr>
+<td><code>Token</code></td>
+<th><code><span>tokenRank</span>&#8203;(int&nbsp;i)</code></th>
+<td>
+<div>Método para obtener un determinado token que está en la posición i
+ (acepta índices negativos).</div>
+</td>
+</tr>
+<tr>
+<td><code>java.util.ArrayList&lt;Token&gt;</code></td>
+<th><code><span>tokenRank</span>&#8203;(int&nbsp;i,
+         int&nbsp;j)</code></th>
+<td>
+<div>Retorna un ArrayList que contiene los tokens que estén entre la posición
+ i y j (acepta índices negativos).</div>
+</td>
+</tr>
+</table>
