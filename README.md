@@ -384,16 +384,6 @@ Clase creada para la ejecución de funciones que son de utilidad en un compilado
  condición de que no esté precedida de el caracter de escape '\'.</div>
 </td>
 </tr>
-<tr>
-<td><code>static void</code></td>
-<th><code><span>insertAsteriskInName</span>&#8203;(javax.swing.JFrame&nbsp;jFrame,
-                    javax.swing.text.JTextComponent&nbsp;jTextComponent)</code></th>
-<td>
-<div>Método para colocar el asterisco al final del título del JFrame durante
- la edición de un archivo.</div>
-</td>
-</tr>
-<tr>
 <td><code>static void</code></td>
 <th><code><span>insertAsteriskInName</span>&#8203;(javax.swing.JFrame&nbsp;jFrame,
                     javax.swing.text.JTextComponent&nbsp;jTextComponent,
