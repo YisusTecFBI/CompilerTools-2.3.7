@@ -2224,20 +2224,46 @@ Una parte importante de todo compilador aparte del análsis léxico, sintáctico
 Ahora bien, si suponemos que los tokens anteriores fueron extraídos de algún código, se vería de la siguiente manera:
 
 ````
-	SENTENCIA;
-	SENTENCIA;
-	SENTENCIA;
-	{
-		SENTENCIA;
-		SENTENCIA;
-		{
-			SENTENCIA;
-		}
-		SENTENCIA;
-	}
-	SENTENCIA;
+1	SENTENCIA;
+2	SENTENCIA;
+3	SENTENCIA;
+4	{
+5		SENTENCIA;
+6		SENTENCIA;
+7		{
+8			SENTENCIA;
+9		}
+10		SENTENCIA;
+11	}
+12	SENTENCIA;
 ````
 
-Podemos desplegar la estructura de nuestro código mediante un método de la clase Functions en varios bloques de código. El método en cuestión se llama splitCodeInCodeBlocks. Mandaremos
+Podemos desplegar la estructura de nuestro código mediante un método de la clase Functions en varios bloques de código. El método en cuestión se llama splitCodeInCodeBlocks. Mandaremos como parámetro el arreglo de tokens, el bloque iniciador de código ('{'), el bloque terminador de código ('}') y el bloque terminador de sentencia (';'). El método nos generará un objeto de tipo CodeBlock, el cual imprimeremos en consola:
+
+````java
+        // Desplegamos el código en bloques de código
+        CodeBlock code = Functions.splitCodeInCodeBlocks(tokens, "{", "}", ";");
+        System.out.println(code);
+````
+
+La consola nos mostrará lo siguiente:
+
+````
+[12 líneas...]-->([3 líneas...]-->([3 líneas...]-->([1 líneas...]), [1 líneas...]), [1 líneas...])
+````
+
+Como puede observar, nos muestra la estructuración en bloques de nuestro código, divididos y agrupados mediante las sentencias y bloques iniciadores/ terminadores. Lo anterior es meramente informativo. Para obtener el código agrupado en bloques en orden de ejecución, mandamos a llamar el método getBlocksOfCodeInOrderOfExec en el objeto de tipo CodeBlock:
+
+````java
+        System.out.println(code.getBlocksOfCodeInOrderOfExec());
+````
+
+Lo anterior nos mostrará lo siguiente en consola:
+
+````
+[~6da159e2-ce9f-483e-9aea-5c4a82f276f0~, SENTENCIA ;SENTENCIA ;SENTENCIA ;, ~e9ef04f0-2ccd-42fc-aa38-8af4031b63ed~, SENTENCIA ; SENTENCIA ;, ~54e8cf15-f1d8-4775-b7bd-346425a2efc4~, SENTENCIA ;, ~54e8cf15-f1d8-4775-b7bd-346425a2efc4~, SENTENCIA ;, ~e9ef04f0-2ccd-42fc-aa38-8af4031b63ed~, SENTENCIA ;, ~6da159e2-ce9f-483e-9aea-5c4a82f276f0~]
+````
+Podemo visualizar nuestró código dividido en varios segmentos. El inicio y final de un segmento está dividido por un marcador que inicia con el caracter ~, seguido de un UUID único, y termina con otro caracter ~.  Es decir, que tenemos dos marcadores por cada segmento: el inicial y final. Tanto el marcador inicial como final son exactamente el mismo. En el [videotutorial](https://www.youtube.com), vemos un ejemplo de ejecución con ciclos inventados para nuestro lenguaje de programación. 
+
 ### Autor y Licencia
 Copyright 2021-2022 by Yisus Efebei and M45t3r L3g10n
