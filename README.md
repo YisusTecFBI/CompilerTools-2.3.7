@@ -343,7 +343,7 @@ Clase creada para la ejecución de funciones que son de utilidad en un compilado
 <th><code><span>addRowDataInTable</span>&#8203;(javax.swing.JTable&nbsp;table,
                  java.lang.Object[]&nbsp;rowData)</code></th>
 <td>
-<div>Método para agregar un arreglo de objetos como renglón a una tabla</div>
+<div>Método para agregar un arreglo de objetos como renglón a una tabla.</div>
 </td>
 </tr>
 <tr>
