@@ -1613,6 +1613,34 @@ Produccion(TIPO_DATO, 9, 36, 9, 36, [
 Token(color, TIPO_DATO, 9, 36)])
 ````
 
-Como podrá observar, nos generó 3 producciones, estas producciones a su vez contienen un solo Token. El nombre de la producción es el mismo que el nombre del token que almacena. El primer parámetro es el nombre de la producción, la línea inicial, columna inicial, línea final, columna final y el arreglo de tokens. En este caso, tanto la línea/columna inicial y final son las mismas ya que solo contiene un solo Token. En caso de haber más tokens en la Producción, la línea/columna inicial de la Producción será igual a la línea/columna del primer Token; por lo tanto, la línea/columna final será igual a la línea/columna final del último Token.
+Como podrá observar, nos generó 3 producciones, estas producciones a su vez contienen un solo Token. El nombre de la producción es el mismo que el nombre del token que almacena. El primer parámetro es el nombre de la producción, la línea inicial, columna inicial, línea final, columna final y el arreglo de tokens. En este caso, tanto la línea/columna inicial y final son las mismas ya que solo contiene un solo Token. En caso de haber más tokens en la Producción, la línea/columna inicial de la Producción será igual a la línea/columna del primer Token; siguiendo la misma lógica, la línea/columna final será igual a la línea/columna final del último Token.
+
+Realizaremos las agrupaciones de nuestros tokens. Supongamos que inventamos una nueva gramática donde debe haber un paréntesis que abre y que cierra al inicio, seguido de un tipo de dato. Debemos tener claro que el objeto Grammar que cremos anteriormente realizará las agrupaciones de Tokens de acuerdo al orden en el que estén en el ArrayList que recibió como parámetro. Haremos la agrupación de la siguiente manera:
+
+````java
+        /* Hacemos una agrupación, pasando como parámetro el nombre de la nueva producción,
+        seguido de la expresión regular
+         */
+        gramatica.group("FUNCION", "PARENTESIS_A PARENTESIS_C TIPO_DATO");
+````
+
+Si mostramos nuevamente la gramática, generará la siguiente salida en consola:
+
+````
+....................................................................................................
+**** Agrupación 1 "FUNCION" realizada con éxito ****
+Cantidad de componentes: 3
+La cantidad de producciones se redujo de 3 a 1
+
+
+**** Mostrando gramáticas ****
+
+....................................................................................................
+Produccion(FUNCION, 3, 41, 9, 36, [
+Token((, PARENTESIS_A, 3, 41),
+Token(), PARENTESIS_C, 5, 13),
+Token(color, TIPO_DATO, 9, 36)])
+````
+Como podrá darse cuenta, la clase Grammar nos mostrará información de la agrupación que haya realizado, así como la reducción de producciones que hayan ocurrido. Al final podremos observar que se generó una sola producción con 3 tokens. La expresión regular que usamos en el paso anterior es muy sencilla, pero soporta cualquier expresión sin importar su complejidad, dándonos el total control de agrupaciones que queramos realizar.
 ### Autor y Licencia
 Copyright 2021-2022 by Yisus Efebei and M45t3r L3g10n
