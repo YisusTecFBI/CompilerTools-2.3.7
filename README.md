@@ -79,3 +79,49 @@ Las funciones o métodos que contiene son los siguientes:
 </td>
 </tr>
 </table>
+
+### Directory
+Clase para la manipulación de archivos de código. Las operaciones que se pueden realizar son las siguientes: Nuevo, Abrir, Guardar, Guardar Como y Salir. El código se podrá visualizar en el JTextComponent especificado. De la misma manera, si el título del JFrame contiene un asterisco (lo cual indica que el código actual está siendo modificado), hará las operaciones correspondientes. Las funciones o métodos que contiene son los siguientes:
+<table>
+<tr>
+<th>Modificador y tipo</th>
+<th>Método</th>
+<th>Descripción</th>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span>Exit</span>()</code></th>
+<td>
+<div>Función que, en dado caso de que exista un archivo o código siendo modificado, le preguntará si desea guardar los cambios realizados.</div>
+</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<th><code><span>New</span>()</code></th>
+<td>
+<div>Función para crear una nueva edición de código. Reseteará el título del JFrame y el contenido del JTextComponent. Si existe algún archivo o código siendo modificado, le preguntará si desea guardar los cambios realizados.</div>
+</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<th><code><span>Open</span>()</code></th>
+<td>
+<div>Función para abrir un archivo de código.  Pondrá de título del JFrame el nombre del archivo, además de poner el contenido de dicho archivo en el JTextComponent. Si existe algún archivo o código siendo modificado, le preguntará si desea guardar los cambios.</div>
+</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<th><code><span>Save</span>()</code></th>
+<td>
+<div>Función para guardar los cambios realizados en un archivo de código. Si el archivo no ha sido creado, desplegará el explorador de archivos para elegir el nombre y ubicación del nuevo archivo que usted desea crear. Si ya existe un archivo con el mismo nombre en la misma ubicación, le preguntará si desea remplazarlo. En caso de que ya exista, guardará los cambios en el archivo y quitará el asterisco del título del JFrame.</div>
+</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<th><code><span>SaveAs</span>()</code></th>
+<td>
+<div>Función que guardará como un nuevo archivo el código que esté siendo
+ modificado o creado. Se desplegará el explorador de archivos para elegir la ubicación y el nombre del nuevo archivo. Si existe un archivo con el mismo nombre y ubicación, este será remplazado.</div>
+</td>
+</tr>
+</table>
