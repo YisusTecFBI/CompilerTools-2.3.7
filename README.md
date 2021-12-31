@@ -81,6 +81,102 @@ Las funciones o métodos que contiene son los siguientes:
 </tr>
 </table>
 
+<section>
+    <ul>
+        <li><a>
+            </a>
+            <h3>Detalles de métodos</h3>
+            <a id="getCode()">
+            </a>
+            <ul>
+                <li>
+                    <h4>getCode</h4>
+                    <dl>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>String El código del bloque</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="setCode(java.lang.String)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>setCode</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>code</code> - El código que se desea que contenga el bloque</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="getCodeBlockChilds()">
+            </a>
+            <ul>
+                <li>
+                    <h4>getCodeBlockChilds</h4>
+                    <dl>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>ArrayList&lt;CodeBlock&gt; ArrayList de bloques de código</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="setCodeBlockChilds(java.util.ArrayList)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>setCodeBlockChilds</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>codeBlockChilds</code> - ArrayList de bloques de código hijos</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="addBCodeBlockChild(compilerTools.CodeBlock)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>addBCodeBlockChild</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>codeBlockChild</code> - El bloque de código que se desea agregar como hijo</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="getBlocksOfCodeInOrderOfExec()">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>getBlocksOfCodeInOrderOfExec</h4>
+                    <dl>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>ArrayList&lt;String&gt; Un ArrayList de String de los bloques de
+                            código en orden de ejecución</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="getPositionOfBothMarkers(java.util.ArrayList,java.lang.String)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>getPositionOfBothMarkers</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>blocksOfCode</code> - Los bloques de código que se desean analizar</dd>
+                        <dd><code>marker</code> - El marcador que se desea buscar</dd>
+                        <dt><span>Retorna:</span></dt>
+                        <dd>int[] Un arreglo de enteros de dos dimensiones que contiene ambas
+                            posiciones</dd>
+                    </dl>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
 ### Directory
 Clase para la manipulación de archivos de código. Las operaciones que se pueden realizar son las siguientes: Nuevo, Abrir, Guardar, Guardar Como y Salir. El código se podrá visualizar en el JTextComponent especificado. De la misma manera, si el título del JFrame contiene un asterisco (lo cual indica que el código actual está siendo modificado), hará las operaciones correspondientes. Las funciones o métodos que contiene son los siguientes:
 <table>
