@@ -877,6 +877,133 @@ Clase que sirve para realizar la agrupación de Tokens en un ArrayList de Produc
 </tr>
 </table>
 
+<section role="region">
+    <ul>
+        <li><a
+                id="group(java.lang.String,java.lang.String,java.lang.String[],boolean,int,java.lang.String,int,java.util.ArrayList)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>group</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>nameProduction</code> - El nombre de la nueva producción</dd>
+                        <dd><code>expReg</code> - La expresión regular con la que debe coincidir los nombres
+                            (componentes) de las producciones a agrupar</dd>
+                        <dd><code>conmponents</code> - Los componentes de la expresión regular. Si no se
+                            especifican se obtienen de forma automática, pero consume más tiempo de
+                            procesamiento</dd>
+                        <dd><code>stopAtFirstOcurrence</code> - Indicamos si deseamos que la agrupación se
+                            detenga en la primera ocurrencia</dd>
+                        <dd><code>errorNumber</code> - El número de error en caso de que dicha agrupación sea
+                            un error</dd>
+                        <dd><code>errorMsg</code> - El mensaje de error en caso de que dicha agrupación sea
+                            un error</dd>
+                        <dd><code>indexComponent</code> - El índice del componente o producción del que
+                            deseamos hacer referencia en el error</dd>
+                        <dd><code>production</code> - ArrayList de Producciones donde deseamos guardar las
+                            agrupaciones realizadas</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="loopForFunExecUntilChangeNotDetected(java.lang.Runnable)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>loopForFunExecUntilChangeNotDetected</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>function</code> - La función que se ejecutará de forma indefinida</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="delete(java.lang.String,int,java.lang.String)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>delete</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>nameProduction</code> - El nombre de la producción que se desea eliminar</dd>
+                        <dd><code>errorNumber</code> - El número de error</dd>
+                        <dd><code>errorMsg</code> - El mensaje de error</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="delete(java.lang.String[],int,java.lang.String)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>delete</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>namesProduction</code> - El arreglo de nombres de producciones que se
+                            desean eliminar</dd>
+                        <dd><code>errorNumber</code> - El número de error</dd>
+                        <dd><code>errorMsg</code> - El mensaje de error</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="delete(java.lang.String,int)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>delete</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>nameProduction</code> - El nombre de la producción que se desea eliminar</dd>
+                        <dd><code>errorNumber</code> - El número de error</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="delete(java.lang.String[],int)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>delete</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>namesProduction</code> - El arreglo de nombres de producciones que se
+                            desean eliminar</dd>
+                        <dd><code>errorNumber</code> - El número de error</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="delete(java.lang.String)">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>delete</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>nameProduction</code> - El nombre de la producción que se desea eliminar</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a id="delete(java.lang.String[])">
+                <!--   -->
+            </a>
+            <ul>
+                <li>
+                    <h4>delete</h4>
+                    <dl>
+                        <dt><span>Parámetros:</span></dt>
+                        <dd><code>namesProduction</code> - El nombre de las producciones que se desean
+                            eliminar</dd>
+                    </dl>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
 ### Production
 Clase realizada para el almacenamiento de un grupo de tokens, especificando el nombre de la agrupación y la línea/columna inicial y final de la misma. Las funciones o métodos que contiene son los siguientes:
 <table>
