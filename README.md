@@ -2007,7 +2007,7 @@ Lo anterior muestra lo siguiente en consola:
 [Error sintáctico 1: Falta el punto y coma al final de la función [1, 23]]
 ````
 
-También podemos eliminar aquellas producciones o grupos de tokens que desemos eliminar. Mandaremos a llamar la función delete, la cual nos permite eliminar una producción ya sea de forma silenciosa o bien, agregando un mensaje de error. Supongamos que deseamos eliminar el punto y coma, argumentando que es un caracter inválido en nuestro lenguaje:
+También podemos eliminar aquellas producciones o grupos de tokens que desemos descartar. Mandaremos a llamar la función delete, la cual nos permite eliminar una producción ya sea de forma silenciosa o bien, agregando un mensaje de error. Supongamos que deseamos eliminar el punto y coma, argumentando que es un caracter inválido en nuestro lenguaje:
 
 ````java
 	// Eliminamos cualquier producción con el nombre de PUNTO_COMA
@@ -2144,7 +2144,7 @@ Token(45.78, VALOR, 8, 15)
 --------------------
 ````
 
-Puede darse el caso de que solo queramos algunos datos y no todo el token. Para ello, podemos usar métodos lexemeRank, lexicalCompRank ó tokenRank, los cuales nos permiten acceder a un determinado rango de tokens y/o sus atributos. Por ejemplo, podemos creas un HashMap para almacenar el nombre del identificador y su valor para crear una tabla de identificadores. Lo haremos de la siguiente manera:
+Puede darse el caso de que solo queramos algunos datos y no todo el token. Para ello, podemos usar los métodos lexemeRank, lexicalCompRank ó tokenRank, los cuales nos permiten acceder a un determinado rango de tokens y/o sus atributos. Por ejemplo, podemos creas un HashMap para almacenar el nombre del identificador y su valor para crear una tabla de identificadores. Lo haremos de la siguiente manera:
 
 ````java
         // Creamos un HashMap para guardar los identificador y sus valores
@@ -2173,5 +2173,71 @@ El identificador $kilometros de tipo flotante es igual a 45.78
 {$kilometros=45.78, $hola=56}
 ````
 
+Una parte importante de todo compilador aparte del análsis léxico, sintáctico, semántico o lógico es que sea totalmente funcional. Debe de existir alguna manera en la que podamos acceder a cada una de las sentencias de forma individual para su posterior ejecución. Para hacer lo anterior, nos apoyaremos de la Clase CodeBlock y Functions. Supongamos que tenemos los siguientes Tokens:
+````java
+       	// Declaramos los tokens
+        Token tk1 = new Token("SENTENCIA", "SENTENCIA", 1, 94);
+        Token tk2 = new Token(";", "PUNTO_COMA", 1, 95);
+        Token tk3 = new Token("SENTENCIA", "SENTENCIA", 2, 56);
+        Token tk4 = new Token(";", "PUNTO_COMA", 2, 57);
+        Token tk5 = new Token("SENTENCIA", "SENTENCIA", 3, 65);
+        Token tk6 = new Token(";", "PUNTO_COMA", 3, 66);
+        Token tk7 = new Token("{", "LLAVE_A", 4, 24);
+        Token tk8 = new Token("SENTENCIA", "SENTENCIA", 5, 76);
+        Token tk9 = new Token(";", "PUNTO_COMA", 5, 77);
+        Token tk10 = new Token("SENTENCIA", "SENTENCIA", 6, 45);
+        Token tk11 = new Token(";", "PUNTO_COMA", 6, 46);
+        Token tk12 = new Token("{", "LLAVE_A", 7, 65);
+        Token tk13 = new Token("SENTENCIA", "SENTENCIA", 8, 15);
+        Token tk14 = new Token(";", "PUNTO_COMA", 8, 16);
+        Token tk15 = new Token("}", "LLAVE_C", 9, 23);
+        Token tk16 = new Token("SENTENCIA", "SENTENCIA", 10, 15);
+        Token tk17 = new Token(";", "PUNTO_COMA", 10, 16);
+        Token tk18 = new Token("}", "LLAVE_C", 11, 45);
+        Token tk19 = new Token("SENTENCIA", "SENTENCIA", 12, 94);
+        Token tk20 = new Token(";", "PUNTO_COMA", 12, 95);
+	
+        // Agregamos los tokens a un ArrayList de tipo Token
+        ArrayList<Token> tokens = new ArrayList<>();
+        tokens.add(tk1);
+        tokens.add(tk2);
+        tokens.add(tk3);
+        tokens.add(tk4);
+        tokens.add(tk5);
+        tokens.add(tk6);
+        tokens.add(tk7);
+        tokens.add(tk8);
+        tokens.add(tk9);
+        tokens.add(tk10);
+        tokens.add(tk11);
+        tokens.add(tk12);
+        tokens.add(tk13);
+        tokens.add(tk14);
+        tokens.add(tk15);
+        tokens.add(tk16);
+        tokens.add(tk17);
+        tokens.add(tk18);
+        tokens.add(tk19);
+        tokens.add(tk20);
+````
+
+Ahora bien, si suponemos que los tokens anteriores fueron extraídos de algún código, se vería de la siguiente manera:
+
+````
+	SENTENCIA;
+	SENTENCIA;
+	SENTENCIA;
+	{
+		SENTENCIA;
+		SENTENCIA;
+		{
+			SENTENCIA;
+		}
+		SENTENCIA;
+	}
+	SENTENCIA;
+````
+
+Podemos desplegar la estructura de nuestro código mediante un método de la clase Functions en varios bloques de código. El método en cuestión se llama splitCodeInCodeBlocks. Mandaremos
 ### Autor y Licencia
 Copyright 2021-2022 by Yisus Efebei and M45t3r L3g10n
