@@ -14,7 +14,7 @@ Características clave:
 - Cuenta con una función para el coloreo de palabras en un JTextComponent.
 - Implementa el almacenamiento de tokens y sus atributos básicos, los cuales son lexema, componente léxico, línea y columna.
 
-Explicaré la función principal de cada clase y cada uno de sus métodos. De igual forma dejaré un [videotutorial](https://www.youtube.com) en el cual explicó mas a detalle el funcionamiento.
+Explicaré la función principal de cada clase y cada uno de sus métodos. De igual forma dejaré un [videotutorial](https://www.youtube.com/channel/UCXup486VwZ5AZGNss2SRa4g) en el cual explicó más a detalle el funcionamiento.
 
 ### CodeBlock
 Clase realizada para la manipulación de bloques de código.
