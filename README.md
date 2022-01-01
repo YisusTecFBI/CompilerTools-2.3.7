@@ -723,7 +723,7 @@ Clase creada para la ejecución de funciones que son de utilidad en un compilado
                     <dl>
                         <dt><span>Parámetros:</span></dt>
                         <dd><code>words</code> - Las palabras clave de las cuales se buscarán coincidencias</dd>
-                        <dd><code>jTextComponent</code> - El JtextComponent del que se desea implementar el
+                        <dd><code>jTextComponent</code> - El JTextComponent del que se desea implementar el
                             método de autocompletado</dd>
                         <dd><code>function</code> - La función que se desea ejecutar después de seleccionar
                             cualquier palabra clave del JPopupMenu</dd>
