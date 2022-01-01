@@ -1944,7 +1944,7 @@ A continuación describiremos la manera de como generar errores sintácticos. Un
 	// ArrayList de ErrorLSSL
         ArrayList<ErrorLSSL> errores = new ArrayList<>();
 
-        // Cremos el objeto de tipo Grammar, pasando como parámetro el ArrayList de Tokens y el ArrayList de errores
+        // Creamos el objeto de tipo Grammar, pasando como parámetro el ArrayList de Tokens y el ArrayList de errores
         Grammar gramatica = new Grammar(tokens, errores);
 ````
 
