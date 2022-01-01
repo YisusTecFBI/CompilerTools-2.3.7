@@ -389,7 +389,7 @@ Clase creada para la ejecución de funciones que son de utilidad en un compilado
 <tr>
 <td><code>static void</code></td>
 <th><code><span>colorTextPane</span>&#8203;(java.util.ArrayList&lt;TextColor&gt;&nbsp;textsColor,
-             javax.swing.JTextPane&nbsp;jtpCode,
+             javax.swing.JTextPane&nbsp;jTextPane,
              java.awt.Color&nbsp;originalColor)</code></th>
 <td>
 <div>Función que colorea los caracteres de un JTextPane que estén dentro de un
@@ -599,7 +599,7 @@ Clase creada para la ejecución de funciones que son de utilidad en un compilado
                     <dl>
                         <dt><span>Parámetros:</span></dt>
                         <dd><code>textsColor</code> - El ArrayList de textos de color</dd>
-                        <dd><code>jtpCode</code> - El JTextPane en el cual se desea cambiar el color de los
+                        <dd><code>jTextPane</code> - El JTextPane en el cual se desea cambiar el color de los
                             caracteres</dd>
                         <dd><code>originalColor</code> - El color por defecto de aquellos caracteres que no
                             estén dentro del rango</dd>
