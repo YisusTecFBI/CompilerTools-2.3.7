@@ -1605,7 +1605,7 @@ Declararemos un ArrayList de tipo ErrorLSSL para guardar los errores resultantes
 A continuación, empezaremos a hacer las agrupaciones de nuestras gramáticas. Crearemos un objeto de tipo Grammar:
 
 ````java
-        // Cremos el objeto de tipo Grammar, pasando como parámetro el ArrayList de Tokens y el ArrayList de errores
+        // Creamos el objeto de tipo Grammar, pasando como parámetro el ArrayList de Tokens y el ArrayList de errores
         Grammar gramatica = new Grammar(tokens, errores);
         // Mostramos las gramáticas o conjunto de producciones creadas
         gramatica.show();
@@ -1695,7 +1695,7 @@ Como podremos observar, no se realizó ninguna agrupación de Tokens. De igual m
         // Desactivamos las validaciones internas de la clase
         gramatica.disableValidations();
 ````
-Precaución: Si usted desactiva las validaciones y alguna agrupación contiene algún parámetro incorrecto, se nos generará un error en tiempo de ejecución. Supongamos que no corregimos la expresión regular y aún así desactivamos las validaciones:
+Precaución: Si usted desactiva las validaciones y alguna agrupación contiene algún parámetro incorrecto, se nos generará un error en tiempo de ejecución. Supongamos que no corregimos la expresión regular y aun así desactivamos las validaciones:
 
 ````java
         // Desactivamos las validaciones internas de la clase
@@ -1776,7 +1776,7 @@ Para el siguiente ejemplo, introduciremos nuevos tokens:
         // ArrayList de ErrorLSSL
         ArrayList<ErrorLSSL> errores = new ArrayList<>();
 
-        // Cremos el objeto de tipo Grammar, pasando como parámetro el ArrayList de Tokens y el ArrayList de errores
+        // Creamos el objeto de tipo Grammar, pasando como parámetro el ArrayList de Tokens y el ArrayList de errores
         Grammar gramatica = new Grammar(tokens, errores);
 ````
 
@@ -1872,13 +1872,13 @@ Token({, LLAVE_C, 9, 43),
 Token(}, LLAVE_C, 10, 13)])
 ````
 
-Ahora bien, supongamos que deseamos que la agrupación la haga hasta la primera ocurrencia. Mandaremos un parametro adicional booleano llamado stopAtFirstOcurrence en true:
+Ahora bien, supongamos que deseamos que la agrupación la haga hasta la primera ocurrencia. Mandaremos un parámetro adicional booleano llamado stopAtFirstOcurrence en true:
 
 ````java
         gramatica.group("FUNCION", "LLAVE_A FUNCION (LLAVE_C)+", true);
 ````
 
-De esa manera, tendremo lo siguiente en consola:
+De esa manera, tendremos lo siguiente en consola:
 
 ````
 **** Mostrando gramáticas ****
@@ -1920,7 +1920,7 @@ Token(}, LLAVE_C, 10, 13)])
 
 Como puede observar, solamente agrupó una llave que cierra, ya que en si la agrupación cumple con la expresión regular, pero se detuvo en la primera ocurrencia. Esta funcionalidad solamente es útil si desea ahorrar tiempo de procesamiento en aquellas agrupaciones que solamente se cumplirán con una sola cadena.
 
-A continuación describiremos la manera de como generar errores sintácticos. Un error sintáctico se genera al encontrase una gramática que no esté reconocida por el lenguaje. Supongamos que deseamos agrupar una llave que abre, seguido de una funcion, una llave que cierra y que termina con punto y coma. Para ello, nuevamente introduciremos nuevos tokens:
+A continuación describiremos la manera de como generar errores sintácticos. Un error sintáctico se genera al encontrase una gramática que no esté reconocida por el lenguaje. Supongamos que deseamos agrupar una llave que abre, seguido de una función, una llave que cierra y que termina con punto y coma. Para ello, nuevamente introduciremos nuevos tokens:
 
 ````java
         // Declaramos los tokens
@@ -1979,7 +1979,7 @@ Token(}, LLAVE_C, 7, 65),
 Token(;, PUNTO_COMA, 8, 13)])
 ````
 
-Podemos observar que solo un grupo de producciones cumplieron con la expresión regular. A los grupos de produccciones o tokens anteriores solamente les faltó un punto y coma al final. Como eso es básicamente un error sintáctico, agruparemos dicha expresión y guardaremos el error en el ArrayList de errores. Entonces, después de nuestra primera agrupación de sintaxis correcta, haremos una segunda agrupación para la sintaxis incorrecta:
+Podemos observar que solo un grupo de producciones cumplieron con la expresión regular. A los grupos de producciones o tokens anteriores solamente les faltó un punto y coma al final. Como eso es básicamente un error sintáctico, agruparemos dicha expresión y guardaremos el error en el ArrayList de errores. Entonces, después de nuestra primera agrupación de sintaxis correcta, haremos una segunda agrupación para la sintaxis incorrecta:
 
 ````java
         // Agrupación con sintaxis correcta
@@ -2010,7 +2010,7 @@ Token(}, LLAVE_C, 7, 65),
 Token(;, PUNTO_COMA, 8, 13)])
 ````
 
-¿Donde quedó el error? El error fue almacenado en el ArrayList de errores que pasamos como parámetro. A continuación, imprimeremos en consola del ArrayList de errores:
+¿Dónde quedó el error? El error fue almacenado en el ArrayList de errores que pasamos como parámetro. A continuación, imprimiremos en consola del ArrayList de errores:
 
 ````java
         // Mostramos en consola el ArrayList de errores
@@ -2064,7 +2064,7 @@ Imaginemos que cambiamos la estructura de la agrupación. En vez de que el punto
         // ArrayList de ErrorLSSL
         ArrayList<ErrorLSSL> errores = new ArrayList<>();
 
-        // Cremos el objeto de tipo Grammar, pasando como parámetro el ArrayList de Tokens y el ArrayList de errores
+        // Creamos el objeto de tipo Grammar, pasando como parámetro el ArrayList de Tokens y el ArrayList de errores
         Grammar gramatica = new Grammar(tokens, errores);
 
         // Agrupación con sintaxis correcta
@@ -2103,9 +2103,9 @@ Después, nos mostraría lo siguiente en consola:
 ````
 [Error sintáctico 2: Falta el punto y coma después de la función [6, 23]]
 ````
-Si observamos bien, tanto el error sintáctico 1 y 2 están en la misma línea/columna debido a que la producción FUNCION está compuesta de un solo token. Si stuviera compuesta de más tokens, nos mostrará ya sea la línea/columna inicial/final en su respectivo caso. 
+Si observamos bien, tanto el error sintáctico 1 y 2 están en la misma línea/columna debido a que la producción FUNCION está compuesta de un solo token. Si estuviera compuesta de más tokens, nos mostrará ya sea la línea/columna inicial/final en su respectivo caso. 
 
-También podemos eliminar aquellas producciones o grupos de tokens que desemos descartar. Mandaremos a llamar la función delete, la cual nos permite eliminar una producción ya sea de forma silenciosa o bien, agregando un mensaje de error. Supongamos que deseamos eliminar el punto y coma, argumentando que es un caracter inválido en nuestro lenguaje:
+También podemos eliminar aquellas producciones o grupos de tokens que deseemos descartar. Mandaremos a llamar la función delete, la cual nos permite eliminar una producción ya sea de forma silenciosa o bien, agregando un mensaje de error. Supongamos que deseamos eliminar el punto y coma, argumentando que es un caracter inválido en nuestro lenguaje:
 
 ````java
 	// Eliminamos cualquier producción con el nombre de PUNTO_COMA
@@ -2180,7 +2180,7 @@ Token(=, OP_ASIG, 7, 65),
 Token(45.78, VALOR, 8, 15)])
 ````
 
-Ahora bien, supongamos que nosotros deseamos guardar esas producciones en un ArrayList de tipo Producción. Lo que tenemos que hacer primero es crear el ArrayList. Después, pasar dicho ArrayList como parámetro en en el método group. Al final, imprimermos dicho ArrayList:
+Ahora bien, supongamos que nosotros deseamos guardar esas producciones en un ArrayList de tipo Producción. Lo que tenemos que hacer primero es crear el ArrayList. Después, pasar dicho ArrayList como parámetro en el método group. Al final, imprimiremos dicho ArrayList:
 
 
 ````java
@@ -2215,7 +2215,7 @@ Token(=, OP_ASIG, 7, 65),
 Token(45.78, VALOR, 8, 15)])
 --------------------
 ````
-Ya hemos guardado nuestros identificadores en un ArrayList. Podemos acceder facilmente a los tokens y a su vez, acceder ya sea al número de línea/columna, lexema o componente éxico del mismo. Primeramente mostraremos los tokens de ambas producciones:
+Ya hemos guardado nuestros identificadores en un ArrayList. Podemos acceder fácilmente a los tokens y a su vez, acceder ya sea al número de línea/columna, lexema o componente léxico del mismo. Primeramente mostraremos los tokens de ambas producciones:
 
 ````java
         for (Production ident : identificadores) {
@@ -2271,7 +2271,7 @@ El identificador $kilometros de tipo flotante es igual a 45.78
 {$kilometros=45.78, $hola=56}
 ````
 
-Una parte importante de todo compilador aparte del análsis léxico, sintáctico, semántico o lógico es que sea totalmente funcional. Debe de existir alguna manera en la que podamos acceder a cada una de las sentencias de forma individual para su posterior ejecución. Para hacer lo anterior, nos apoyaremos de la Clase CodeBlock y Functions. Supongamos que tenemos los siguientes Tokens:
+Una parte importante de todo compilador aparte del análisis léxico, sintáctico, semántico o lógico es que sea totalmente funcional. Debe de existir alguna manera en la que podamos acceder a cada una de las sentencias de forma individual para su posterior ejecución. Para hacer lo anterior, nos apoyaremos de la Clase CodeBlock y Functions. Supongamos que tenemos los siguientes Tokens:
 ````java
        	// Declaramos los tokens
         Token tk1 = new Token("SENTENCIA", "SENTENCIA", 1, 94);
@@ -2336,7 +2336,7 @@ Ahora bien, si suponemos que los tokens anteriores fueron extraídos de algún c
 12	SENTENCIA;
 ````
 
-Podemos desplegar la estructura de nuestro código mediante un método de la clase Functions en varios bloques de código. El método en cuestión se llama splitCodeInCodeBlocks. Mandaremos como parámetro el arreglo de tokens, el bloque iniciador de código ('{'), el bloque terminador de código ('}') y el bloque terminador de sentencia (';'). El método nos generará un objeto de tipo CodeBlock, el cual imprimeremos en consola:
+Podemos desplegar la estructura de nuestro código mediante un método de la clase Functions en varios bloques de código. El método en cuestión se llama splitCodeInCodeBlocks. Mandaremos como parámetro el arreglo de tokens, el bloque iniciador de código ('{'), el bloque terminador de código ('}') y el bloque terminador de sentencia (';'). El método nos generará un objeto de tipo CodeBlock, el cual imprimiremos en consola:
 
 ````java
         // Desplegamos el código en bloques de código
@@ -2361,7 +2361,7 @@ Lo anterior nos mostrará lo siguiente en consola:
 ````
 [~6da159e2-ce9f-483e-9aea-5c4a82f276f0~, SENTENCIA ;SENTENCIA ;SENTENCIA ;, ~e9ef04f0-2ccd-42fc-aa38-8af4031b63ed~, SENTENCIA ; SENTENCIA ;, ~54e8cf15-f1d8-4775-b7bd-346425a2efc4~, SENTENCIA ;, ~54e8cf15-f1d8-4775-b7bd-346425a2efc4~, SENTENCIA ;, ~e9ef04f0-2ccd-42fc-aa38-8af4031b63ed~, SENTENCIA ;, ~6da159e2-ce9f-483e-9aea-5c4a82f276f0~]
 ````
-Podemo visualizar nuestró código dividido en varios segmentos. El inicio y final de un segmento está dividido por un marcador que inicia con el caracter ~, seguido de un UUID único, y termina con otro caracter ~.  Es decir, que tenemos dos marcadores por cada segmento: el inicial y final. Tanto el marcador inicial como final son exactamente el mismo. En el [videotutorial](https://www.youtube.com), vemos un ejemplo de ejecución con ciclos inventados para nuestro lenguaje de programación.
+Podemos visualizar nuestro código dividido en varios segmentos. El inicio y final de un segmento está dividido por un marcador que inicia con el caracter ~, seguido de un UUID único, y termina con otro caracter ~.  Es decir, que tenemos dos marcadores por cada segmento: el inicial y final. Tanto el marcador inicial como final son exactamente el mismo. En el [videotutorial](https://www.youtube.com), vemos un ejemplo de ejecución con ciclos inventados para nuestro lenguaje de programación.
 
 ##### Nota
 Muchos de los métodos están sobrecargados, pueden recibir distintas cantidades y combinaciones de parámetros, según lo que se desee que ejecute el método.
