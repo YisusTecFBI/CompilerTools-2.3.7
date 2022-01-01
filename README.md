@@ -2361,7 +2361,7 @@ Lo anterior nos mostrará lo siguiente en consola:
 ````
 [~6da159e2-ce9f-483e-9aea-5c4a82f276f0~, SENTENCIA ;SENTENCIA ;SENTENCIA ;, ~e9ef04f0-2ccd-42fc-aa38-8af4031b63ed~, SENTENCIA ; SENTENCIA ;, ~54e8cf15-f1d8-4775-b7bd-346425a2efc4~, SENTENCIA ;, ~54e8cf15-f1d8-4775-b7bd-346425a2efc4~, SENTENCIA ;, ~e9ef04f0-2ccd-42fc-aa38-8af4031b63ed~, SENTENCIA ;, ~6da159e2-ce9f-483e-9aea-5c4a82f276f0~]
 ````
-Podemos visualizar nuestro código dividido en varios segmentos. El inicio y final de un segmento está dividido por un marcador que inicia con el caracter ~, seguido de un UUID único, y termina con otro caracter ~.  Es decir, que tenemos dos marcadores por cada segmento: el inicial y final. Tanto el marcador inicial como final son exactamente el mismo. En el [videotutorial](https://www.youtube.com), vemos un ejemplo de ejecución con ciclos inventados para nuestro lenguaje de programación.
+Podemos visualizar nuestro código dividido en varios segmentos. El inicio y final de un segmento está dividido por un marcador que inicia con el caracter ~, seguido de un UUID único, y termina con otro caracter ~.  Es decir, que tenemos dos marcadores por cada segmento: el inicial y final. Tanto el marcador inicial como final son exactamente el mismo. En el [videotutorial](https://www.youtube.com/channel/UCXup486VwZ5AZGNss2SRa4g), vemos un ejemplo de ejecución con ciclos inventados para nuestro lenguaje de programación.
 
 ##### Nota
 Muchos de los métodos están sobrecargados, pueden recibir distintas cantidades y combinaciones de parámetros, según lo que se desee que ejecute el método.
