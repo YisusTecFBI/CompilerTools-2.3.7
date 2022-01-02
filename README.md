@@ -171,9 +171,9 @@ Las funciones o métodos que contiene son los siguientes:
     		<li>
         	    <h4>isMarker</h4>
         	    <dl>
-            		<dt><span>Parameters:</span></dt>
+            		<dt><span>Parámetros:</span></dt>
             		<dd><code>marker</code> - El marcador que se desea analizar</dd>
-            		<dt><span>Returns:</span></dt>
+            		<dt><span>Retorna:</span></dt>
             		<dd>boolean Verdadero si la cadena es un marcador, falso en caso
                 	contrario</dd>
         	    </dl>
@@ -1920,7 +1920,7 @@ Token(}, LLAVE_C, 10, 13)])
 
 Como puede observar, solamente agrupó una llave que cierra, ya que en si la agrupación cumple con la expresión regular, pero se detuvo en la primera ocurrencia. Esta funcionalidad solamente es útil si desea ahorrar tiempo de procesamiento en aquellas agrupaciones que solamente se cumplirán con una sola cadena.
 
-A continuación describiremos la manera de como generar errores sintácticos. Un error sintáctico se genera al encontrase una gramática que no esté reconocida por el lenguaje. Supongamos que deseamos agrupar una llave que abre, seguido de una función, una llave que cierra y que termina con punto y coma. Para ello, nuevamente introduciremos nuevos tokens:
+A continuación describiremos la manera de como generar errores sintácticos. Un error sintáctico se genera al encontrarse una gramática que no esté reconocida por el lenguaje. Supongamos que deseamos agrupar una llave que abre, seguido de una función, una llave que cierra y que termina con punto y coma. Para ello, nuevamente introduciremos nuevos tokens:
 
 ````java
         // Declaramos los tokens
