@@ -2366,5 +2366,7 @@ Podemos visualizar nuestro código dividido en varios segmentos. El inicio y fin
 ##### Nota
 Muchos de los métodos están sobrecargados, pueden recibir distintas cantidades y combinaciones de parámetros, según lo que se desee que ejecute el método.
 
+### ¿Cómo puedo ayudar?
+El uso de la librería es totalmente gratuito, no necesita hacer nada en especial. Si usted lo desea, puede hacer una pequeña [donación](https://www.paypal.com/donate/?hosted_button_id=W8H3EFEBKQMKE) en PayPal, lo cual me motivaría a seguir haciendo herramientas que puedan ayudar a otros.
 ### Autor y Licencia
 Copyright 2021-2022 by Yisus Efebei and M45t3r L3g10n
